@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : lun. 02 mai 2022 à 09:52
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Hôte : localhost:3308
+-- Généré le : lun. 02 mai 2022 à 17:44
+-- Version du serveur :  5.7.33
+-- Version de PHP : 7.4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `gestiontournois`
+-- Base de données : `orsete`
 --
 
 -- --------------------------------------------------------
@@ -27,14 +27,10 @@ SET time_zone = "+00:00";
 -- Structure de la table `appartient`
 --
 
-DROP TABLE IF EXISTS `appartient`;
-CREATE TABLE IF NOT EXISTS `appartient` (
-  `id_a` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `appartient` (
+  `id_a` int(11) NOT NULL,
   `id_t` int(11) NOT NULL,
-  `id_e` int(11) NOT NULL,
-  PRIMARY KEY (`id_a`),
-  KEY `id_t` (`id_t`),
-  KEY `id_e` (`id_e`)
+  `id_e` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -43,11 +39,9 @@ CREATE TABLE IF NOT EXISTS `appartient` (
 -- Structure de la table `equipe`
 --
 
-DROP TABLE IF EXISTS `equipe`;
-CREATE TABLE IF NOT EXISTS `equipe` (
-  `id_e` int(11) NOT NULL AUTO_INCREMENT,
-  `nom_e` int(11) NOT NULL,
-  PRIMARY KEY (`id_e`)
+CREATE TABLE `equipe` (
+  `id_e` int(11) NOT NULL,
+  `nom_e` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -56,14 +50,11 @@ CREATE TABLE IF NOT EXISTS `equipe` (
 -- Structure de la table `joueur`
 --
 
-DROP TABLE IF EXISTS `joueur`;
-CREATE TABLE IF NOT EXISTS `joueur` (
-  `id_j` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `joueur` (
+  `id_j` int(11) NOT NULL,
   `nom_j` varchar(50) NOT NULL,
   `prenom_j` varchar(50) NOT NULL,
-  `id_e` int(11) NOT NULL,
-  PRIMARY KEY (`id_j`),
-  KEY `id_e` (`id_e`)
+  `id_e` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -72,17 +63,14 @@ CREATE TABLE IF NOT EXISTS `joueur` (
 -- Structure de la table `rencontre`
 --
 
-DROP TABLE IF EXISTS `rencontre`;
-CREATE TABLE IF NOT EXISTS `rencontre` (
-  `id_r` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `rencontre` (
+  `id_r` int(11) NOT NULL,
   `id_e1` int(11) NOT NULL,
   `id_e2` int(11) NOT NULL,
   `score_e1_r` int(11) DEFAULT NULL,
   `score_e2_r` int(11) DEFAULT NULL,
   `tour_r` int(11) NOT NULL,
-  PRIMARY KEY (`id_r`),
-  KEY `id_e1` (`id_e1`),
-  KEY `id_e2` (`id_e2`)
+  `commentaire_r` varchar(400) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -91,25 +79,89 @@ CREATE TABLE IF NOT EXISTS `rencontre` (
 -- Structure de la table `tournois`
 --
 
-DROP TABLE IF EXISTS `tournois`;
-CREATE TABLE IF NOT EXISTS `tournois` (
-  `id_t` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tournois` (
+  `id_t` int(11) NOT NULL,
   `sport_t` varchar(50) NOT NULL,
-  `capacite_t` int(11) NOT NULL,
-  `nom_t` varchar(100) NOT NULL,
-  PRIMARY KEY (`id_t`)
+  `capacite_t` enum('4','8','16') NOT NULL,
+  `nom_t` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `appartient`
+--
+ALTER TABLE `appartient`
+  ADD PRIMARY KEY (`id_a`),
+  ADD KEY `id_t` (`id_t`),
+  ADD KEY `id_e` (`id_e`);
+
+--
+-- Index pour la table `equipe`
+--
+ALTER TABLE `equipe`
+  ADD PRIMARY KEY (`id_e`);
+
+--
+-- Index pour la table `joueur`
+--
+ALTER TABLE `joueur`
+  ADD PRIMARY KEY (`id_j`),
+  ADD KEY `id_e` (`id_e`);
+
+--
+-- Index pour la table `rencontre`
+--
+ALTER TABLE `rencontre`
+  ADD PRIMARY KEY (`id_r`),
+  ADD KEY `id_e1` (`id_e1`),
+  ADD KEY `id_e2` (`id_e2`);
+
+--
+-- Index pour la table `tournois`
+--
+ALTER TABLE `tournois`
+  ADD PRIMARY KEY (`id_t`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `appartient`
+--
+ALTER TABLE `appartient`
+  MODIFY `id_a` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `equipe`
+--
+ALTER TABLE `equipe`
+  MODIFY `id_e` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `joueur`
+--
+ALTER TABLE `joueur`
+  MODIFY `id_j` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `rencontre`
+--
+ALTER TABLE `rencontre`
+  MODIFY `id_r` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `tournois`
+--
+ALTER TABLE `tournois`
+  MODIFY `id_t` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
 --
-
---
--- Contraintes pour la table `appartient`
---
-ALTER TABLE `appartient`
-  ADD CONSTRAINT `appartient_ibfk_1` FOREIGN KEY (`id_t`) REFERENCES `tournois` (`id_t`),
-  ADD CONSTRAINT `appartient_ibfk_2` FOREIGN KEY (`id_e`) REFERENCES `equipe` (`id_e`);
 
 --
 -- Contraintes pour la table `joueur`
