@@ -2,7 +2,8 @@
 
     // Controller Imports
 
-    require_once("controller/exampleController.php");
+
+    require_once("controller/player_controller.php");
 
     // End of controller imports
 
@@ -11,11 +12,13 @@
 
     $exampleController = new ExampleController();
 
+    $playerController = new PlayerController();
+
     // End of controller declarations
 
 
 
-
+    //index.php?action=
     if( isset($_GET["action"]) ){
 
         
@@ -38,6 +41,11 @@
                     $exampleController->postExample($_GET["id"], $_GET["name"]);
                 }
                 break;
+
+            case "displayPlayer":
+                if(isset($_GET["id"])){
+                    $playerController->displayPlayer($_GET["id"]);
+                }
         }
 
     }

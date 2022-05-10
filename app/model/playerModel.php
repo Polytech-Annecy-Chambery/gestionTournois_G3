@@ -3,7 +3,7 @@
 
     require_once("model/model.php"); // Import the Model Class
 
-    class playerModel extends Model {
+    class PlayerModel extends Model {
 
         // Dans chaque fonction, on pense bien à 
         // appeler la méthode dbConnect héritée de
