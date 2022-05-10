@@ -3,27 +3,18 @@
 
     require_once("model/model.php"); // Import the Model Class
 
-    class TournamentModel extends Model {
+    class MatchModel extends Model {
 
         // Dans chaque fonction, on pense bien à 
         // appeler la méthode dbConnect héritée de
         // la classe Modele
 
-        function getTournament($tournamentID){
-            $conn = $this->dbConnect();
-
-            $results = mysqli_query($conn, "SELECT * from tournois WHERE id_t =".$tournamentID);
-            return $results
-
-        }
-
         
-        function addTournament(){
+        function getMatchsFromTournamentID($tournamentID){
             $conn = $this->dbConnect();
 
-
-            // Code pour ajouter un exemple à la bdd
-            // INSERT 
+            $results = mysqli_query($conn, "SELECT * from rencontre r join tournois t on t.id_t == r.id_t WHERE t.id_t =".$tournamentID);
+            return $results
 
         }
 
@@ -31,3 +22,7 @@
 
 
 ?>
+
+
+
+
