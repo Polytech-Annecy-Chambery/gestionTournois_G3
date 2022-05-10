@@ -2,14 +2,16 @@
 
     // Controller Imports
 
-    require_once("controller/exampleController.php");
+    // require_once("controller/exampleController.php");
+    require_once("controller/homeController.php");
 
     // End of controller imports
 
 
     //Controller declarations
+    $homeController = new HomeController();
 
-    $exampleController = new ExampleController();
+    // $exampleController = new ExampleController();
 
     // End of controller declarations
 
@@ -38,14 +40,22 @@
                     $exampleController->postExample($_GET["id"], $_GET["name"]);
                 }
                 break;
+
+            // index.php?action=postTournoi
+            // case "postTournoi":
+            //     if(...){
+            //         $tournamentController->postTournament(...)
+            //     }
+                    
         }
 
     }
+    //index.php/
     else{
         // Par défaut charger l'acceuil
         // Pour être plus consistent on pourrait faire un controller juste
         // pour charger l'acceuil mais basta si c'est une page static
-        require("view/home.php");
+        $homeController->displayHome();
     }
 
 ?>

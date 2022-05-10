@@ -17,7 +17,7 @@
             /*Encodage UTF8 pour les échanges avec la BD*/
             mysqli_query($conn, "SET NAMES UTF8");
 
-            return $conn
+            return $conn;
         }
 
     }
