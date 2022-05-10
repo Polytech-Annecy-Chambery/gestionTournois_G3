@@ -17,18 +17,32 @@
 
         }
 
-        function getAllExamples(){
+        function getAllPlayers(){
             $this->dbConnect();
 
-            // Code pour récupérer tous les exemples
+            $sql = "select * from joueur ";
+            $result = mysqli_query($this->dbConnect(), $sql);
+            return $result;
 
         }
 
-        function addExample( $exampleID, $exampleName){
+        function addPlayer( $nom, $prenom, $id_e){
             $this->dbConnect();
+            $sql = "insert into joueur (nom_j, prenom_j, id_e) values ('".$nom."','".$prenom."','".$id_e."')";
+            $result = mysqli_query($this->dbConnect(), $sql);
+        }
 
-            // Code pour ajouter un exemple à la bdd
+        function removePlayer($id){
+            $this->dbConnect();
+            $sql = "delete from joueur where id_j = ".$id;
+            $result = mysqli_query($this->dbConnect(), $sql);
+        }
 
+        function getIDPlayer($nom, $prenom){
+            $this->dbConnect();
+            $sql = "select id_j from joueur where nom_j='".$nom."' and prenom_j='".$prenom."'";
+            $result = mysqli_query($this->dbConnect(), $sql);
+            return $result;
         }
 
     }
