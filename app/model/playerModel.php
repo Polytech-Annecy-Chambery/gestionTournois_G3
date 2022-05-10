@@ -3,16 +3,17 @@
 
     require_once("model/model.php"); // Import the Model Class
 
-    class ExampleModel extends Model {
+    class playerModel extends Model {
 
         // Dans chaque fonction, on pense bien à 
         // appeler la méthode dbConnect héritée de
         // la classe Modele
 
-        function getExample( $exampleID ){
+        function getPlayer( $ID ){
             $this->dbConnect();
-
-            // Code pour récupérer l'exemple avec l'id donnée
+            $sql = "select nom_j, prenom_j from joueur where id_j = ".$ID;
+            $result = mysqli_query($this->dbConnect(), $sql);
+            return $result;
 
         }
 
