@@ -12,13 +12,9 @@ Formulaire ajouter un tournois -->
 
 <?php ob_start(); // Initialize content start ?>
 
-
-    <!-- Content goes here -->
-
-    <h1>Gestion tournois</h1>
-    <p>Salut</p>
-    
-    <!-- End of content -->
+    <div>
+        
+    </div>
 
 <?php $content = ob_get_clean(); // Get the html content into the content var ?>
 
