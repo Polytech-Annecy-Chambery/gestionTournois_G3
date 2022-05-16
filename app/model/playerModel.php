@@ -1,7 +1,7 @@
 <?php
     // /!\ Le modèle n'est jamais appelée ailleur que dans le controller correspondant /!\
 
-    require_once("model/model.php"); // Import the Model Class
+    require_once("model/Model.php"); // Import the Model Class
 
     class PlayerModel extends Model {
 
@@ -20,9 +20,28 @@
         function getAllPlayers(){
             $this->dbConnect();
 
-            $sql = "select * from joueur ";
+            if (isset($_POST["choisir"])){
+                $sql = "select * from joueur where id_e = (select id_e from equipe where id_e = ".$_POST['liste_equipe'].")";
+                $players = mysqli_query($this->dbConnect(), $sql);
+                return $players;
+                echo "<p>Les joueurs de l'équipe séléctionnés sont les suivants : </p>";
+            }
+            
+            echo "<h1>Tous les joueurs</h1>";
+
+            echo "Equipe: <select name=\"liste_equipe\">";
+            echo "<option>--Choisissez l'équipe--";
+            $sql = "select nom_e from equipe";
             $result = mysqli_query($this->dbConnect(), $sql);
-            return $result;
+            while ($row = mysqli_fetch_array($result)) {
+                echo "<option>".$row[0];
+            }
+            echo "</select>";
+
+            echo "<br>";
+
+            echo "<input type=\"submit\" name=\"choisir\" value=\"Voir joueurs\" />";
+
 
         }
 

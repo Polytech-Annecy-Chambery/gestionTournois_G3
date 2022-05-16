@@ -3,16 +3,15 @@
     // Controller Imports
 
 
-    require_once("controller/player_controller.php");
+    require_once("controller/PlayerController.php");
 
     // End of controller imports
 
 
     //Controller declarations
 
-    $exampleController = new ExampleController();
-
     $playerController = new PlayerController();
+    $playerController->displayAllPlayers();
 
     // End of controller declarations
 
@@ -26,7 +25,7 @@
 
         switch($_GET["action"]){
 
-            case "listExamples":
+            case "liste_joueurs":
                 $exampleController->displayAllExamples();
                 break;
 
@@ -49,11 +48,13 @@
         }
 
     }
+    /*
     else{
         // Par défaut charger l'acceuil
         // Pour être plus consistent on pourrait faire un controller juste
         // pour charger l'acceuil mais basta si c'est une page static
         require("view/home.php");
     }
+    */
 
 ?>
