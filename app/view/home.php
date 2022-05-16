@@ -13,11 +13,11 @@ Formulaire ajouter un tournois -->
 <?php ob_start(); // Initialize content start ?>
 
 	<div class="buttons">
-	<a href="createTournamentView.php"><input class="button"
+	<a href="index.php?action=addTournament"><input class="button"
        type="button"
        value="Ajouter un tournoi"></a>
 
-	   <a href="createTeamView.php"><input class="button"
+	   <a href="index.php?action=addTeam"><input class="button"
        type="button"
        value="Ajouter une équipe">
 	</div>

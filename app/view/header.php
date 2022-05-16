@@ -2,13 +2,13 @@
 
     <ul class="menu">
               <li>
-                <a href="view/home.php" class="actif">Accueil</a>
+                <a href="index.php" class="actif">Accueil</a>
               </li>
               <li>
-                <a href="view/allTournaments.php">Tournois</a>
+                <a href="index.php?action=tournaments">Tournois</a>
               </li>
               <li>
-                <a href="view/allTeamsView.php">Equipes</a>
+                <a href="index.php?action=teams">Equipes</a>
               </li>
         </ul>
 
