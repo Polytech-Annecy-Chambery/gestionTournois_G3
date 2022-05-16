@@ -1,5 +1,5 @@
 <!-- Page de Bienvenue
-
+test
 Liste des tournois (différente couleur s'ils sont complet ou incomplet )
 
 Bouton pour voir toutes les équipes
@@ -32,6 +32,10 @@ Formulaire ajouter un tournois -->
 					</div>
 					<div>
 						<input id="sport_t" type="text" name="sport_t" placeholder="Sport" title="Entrez un sport. Champ obligatoire" required>
+					</div>
+
+					<div>
+						
 					</div>
 				</div>
 
