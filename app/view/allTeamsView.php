@@ -24,7 +24,9 @@ $style = "example.css"; // Set the corresponding stylesheet
 <!-- Afficher l'exemple $example définie dans le controller -->
 <p ><?php
         while ($row = mysqli_fetch_assoc($teams)) { //on extrait les citoyens
-            echo "<li>".$row["nom_e"]."</li>\n"."<button onclick= \"location.href='view/teamView.php'\">Voir matchs</button>"
+            $id_e = $row['id_e'];
+            $nom_e = $row['nom_e'];
+            echo "<li>".$nom_e."</li>\n"."<a href=\"index.php?action=displayTeamMatch&id=$id_e\">voir les matchs</a>";
     );
     ?>
 </p>
