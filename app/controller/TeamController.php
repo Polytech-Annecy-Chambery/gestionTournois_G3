@@ -18,5 +18,6 @@ class TeamController
         $teams = $this->teamModel->getAllTeams();
         require("app/view/teamView.php");
     }
+
 }
 

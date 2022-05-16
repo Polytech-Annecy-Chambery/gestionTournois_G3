@@ -1,5 +1,5 @@
 <?php
-    require_once("model/exampleModel.php"); // Import the example Model
+    require_once("model/TeamModel.php"); // Import the example Model
 
     class ExampleController{
 
