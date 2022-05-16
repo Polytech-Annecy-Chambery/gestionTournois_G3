@@ -1,13 +1,22 @@
-<!-- Voir les joueurs de l'équipe
+<?php ob_start(); // Initialize content start ?>
 
-Ajouter un joueur
+    <?php
+        echo "<h1>Ajouter une équipe</h1>";
 
-Modifier un joueur
+        if (isset($_GET["action"])){
+            if ($_GET ["action"]=="Ajouter"){
+                echo "<p>L’équipe a été ajoutée</p>";
+            }
+        }
+        
+    
+        echo "<form method=\"get\">";
+        echo "Nom d'équipe : <input type=\"text\" name=\"nom\"><br/>";
+        echo "<input type=\"submit\" name=\"action\" value=\"Ajouter\" />";
+        echo "</form>";
 
-supprimer un joueur
+    ?>
 
-Modifier le nom de l'équipe
 
-Supprimer l'équipe
-
-Et truc en plus : voir les match joués  -->
+<?php $content = ob_get_clean(); ?>
+<?php require('template.php'); ?>

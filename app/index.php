@@ -2,14 +2,15 @@
 
     // Controller Imports
 
-    require_once("controller/exampleController.php");
+    require_once("controller/CreateTeamController.php");
 
     // End of controller imports
 
 
     //Controller declarations
 
-    $exampleController = new ExampleController();
+    $teamController = new CreateTeamController();
+    
 
     // End of controller declarations
 
@@ -38,14 +39,21 @@
                     $exampleController->postExample($_GET["id"], $_GET["name"]);
                 }
                 break;
+            
+            case "Ajouter" :
+                $teamController->postTeam($_GET['nom']);
+                require("view/teamView.php");
+                break;
         }
 
     }
+    
     else{
         // Par défaut charger l'acceuil
         // Pour être plus consistent on pourrait faire un controller juste
         // pour charger l'acceuil mais basta si c'est une page static
-        require("view/home.php");
+        require("view/teamView.php");
     }
+    
 
 ?>
