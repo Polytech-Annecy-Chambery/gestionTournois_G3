@@ -17,7 +17,7 @@
             <?php while($donnees = $tournaments->fetch_array()){ ?>
                 
 
-                    <form id="form_tournament" method='POST'>
+                    <form id="form_tournament" method='GET'>
                         <input type="hidden" name="tournament" value="<?php echo $donnees['nom_t'] ?>">
                         
                         <button type="submit" name="action" value="un_film">
