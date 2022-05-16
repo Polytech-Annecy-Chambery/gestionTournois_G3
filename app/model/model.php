@@ -1,5 +1,3 @@
-
-
 <?php
 
     // Classe Model qui définie les fonctions communes à tous les modèles

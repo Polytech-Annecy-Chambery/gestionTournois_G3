@@ -12,7 +12,18 @@ Formulaire ajouter un tournois -->
 
 <?php ob_start(); // Initialize content start ?>
 
-    <div id='ajoutTournois'>
+	<div class="buttons">
+	<a href="createTournamentView.php"><input class="button"
+       type="button"
+       value="Ajouter un tournoi"></a>
+
+	   <a href="createTeamView.php"><input class="button"
+       type="button"
+       value="Ajouter une équipe">
+	</div>
+
+
+    <!-- <div id='addTournament'>
 			<h2>Ajouter un Tournois :</h2>
 
 			<form method='post' action='index.php?action=postTournament'>
@@ -42,7 +53,7 @@ Formulaire ajouter un tournois -->
 							value="Ajouter">
 				</div>
 			</form>
-		</div>
+		</div> -->
 
 <?php $content = ob_get_clean(); // Get the html content into the content var ?>
 
