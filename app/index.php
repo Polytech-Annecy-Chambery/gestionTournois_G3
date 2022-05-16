@@ -1,15 +1,9 @@
-<?php 
-
-    // Controller Imports
-
-    // require_once("controller/exampleController.php");
-    require_once("controller/homeController.php");
-
-    // End of controller imports
-
-
+<?php
     //Controller declarations
     $homeController = new HomeController();
+    $tournamentController = new TournamentController();
+
+    $tournamentController->displayAllTournament();
 
     // $exampleController = new ExampleController();
 
@@ -39,6 +33,10 @@
                 if(isset($_GET["id"]) && isset($_GET["name"])){
                     $exampleController->postExample($_GET["id"], $_GET["name"]);
                 }
+                break;
+
+            case "showTournaments":
+                $tournamentController->displayAllTournament();
                 break;
 
             // index.php?action=postTournoi

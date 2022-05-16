@@ -3,9 +3,14 @@
 
     require_once("model/TournamentModel.php"); // Import the example Model
 
-    class ExampleController{
+    class TournamentController{
 
-        private $tournamentModel = new ExampleModel(); // Bien définir le modèle correspondant
+        private $tournamentModel;
+
+        function __construct(){
+            $this->tournamnetModel = new TournamentModel();
+        }
+        
 
 
         function postTournament(){
@@ -18,6 +23,13 @@
 
             //header(location = ....);
 
+        }
+
+        function displayAllTournament(){
+
+            $tournaments = $this->tournamentModel->getAllTournament();
+
+            require("Views/AllTournaments.php");
         }
     }
 ?>

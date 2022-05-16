@@ -17,6 +17,13 @@
 
         }
 
+        function getAllTournament(){
+            $conn = $this->dbConnect();
+            $results = mysqli_query($conn, "SELECT * from tournois");
+            return $results
+
+        }
+
         
         function addTournament(){
             $conn = $this->dbConnect();
