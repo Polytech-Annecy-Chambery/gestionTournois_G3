@@ -6,26 +6,26 @@
 </head>
 
 <content>
+<?php $content = ob_get_clean(); // Get the html content into the content var ?>
+<?php require("view/template.php"); ?>
 
-    <?php require("Views/header.php"); ?>
 
     <body>
         <h1>Tous les tournois créés</h1>
 
-        <ul>
+
             <?php while($donnees = $tournaments->fetch_array()){ ?>
                 
-                <li>
+
                     <form id="form_tournament" method='POST'>
                         <input type="hidden" name="tournament" value="<?php echo $donnees['nom_t'] ?>">
-                        <?php echo  $donnees['nom_t'] ?> (<?php echo  $donnees['sport_t'] ?>)
+                        
                         <button type="submit" name="action" value="un_film">
-                            Détails
+                            <?php echo  $donnees['nom_t'] ?> (<?php echo  $donnees['sport_t'] ?>)
                         </button>
                     </form>
-                </li>      
             <?php } ?>     
-        </ul>
+
 
 
     </body>

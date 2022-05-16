@@ -1,14 +1,14 @@
 <?php
 
 
-    require_once("model/TournamentModel.php"); // Import the example Model
+    require_once("model/tournamentModel.php"); // Import the example Model
 
     class TournamentController{
 
         private $tournamentModel;
 
         function __construct(){
-            $this->tournamnetModel = new TournamentModel();
+            $this->tournamentModel = new TournamentModel();
         }
         
 
@@ -29,7 +29,7 @@
 
             $tournaments = $this->tournamentModel->getAllTournament();
 
-            require("Views/AllTournaments.php");
+            require("view/allTournaments.php");
         }
     }
 ?>

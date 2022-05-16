@@ -1,9 +1,13 @@
 <?php
+    include_once("controller/tournamentController.php");
+    include_once("controller/TeamController.php");
+    
     //Controller declarations
-    $homeController = new HomeController();
+    
     $tournamentController = new TournamentController();
+    $teamController = new TeamController();
 
-    $tournamentController->displayAllTournament();
+    $teamController->displayAllTeams();
 
     // $exampleController = new ExampleController();
 
@@ -53,7 +57,7 @@
         // Par défaut charger l'acceuil
         // Pour être plus consistent on pourrait faire un controller juste
         // pour charger l'acceuil mais basta si c'est une page static
-        $homeController->displayHome();
+        //$homeController->displayHome();
     }
 
 ?>
