@@ -1,12 +1,26 @@
 <?php
 
 
-    require_once("model/TournamentModel.php"); // Import the example Model
+    require_once("model/tournamentModel.php"); // Import the example Model
+    require_once("model/matchModel.php");
 
-    class ExampleController{
+    class TournamentController{
 
-        private $tournamentModel = new ExampleModel(); // Bien définir le modèle correspondant
+        private $tournamentModel; // Bien définir le modèle correspondant
+        private $matchModel;
+        
+        public function __construct()
+        {
+            $this->tournamentModel = new TournamentModel();
+            $this->matchModel = new MatchModel();
+        }
 
+        function displayTournamentTree($tournamentId){
+            $tournament = $this->tournamentModel->getTournament($tournamentId);
+            $matches = $this->matchModel->getMatchsFromTournamentID($tournamentId);
+
+            require("view/tournamentTreeView.php");
+        }
 
         function postTournament(){
 
@@ -19,5 +33,6 @@
             //header(location = ....);
 
         }
+
     }
 ?>

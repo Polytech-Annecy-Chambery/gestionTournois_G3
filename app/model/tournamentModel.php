@@ -13,7 +13,7 @@
             $conn = $this->dbConnect();
 
             $results = mysqli_query($conn, "SELECT * from tournois WHERE id_t =".$tournamentID);
-            return $results
+            return $results->fetch_assoc();
 
         }
 

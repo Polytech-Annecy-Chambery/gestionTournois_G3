@@ -4,12 +4,16 @@
 
     // require_once("controller/exampleController.php");
     require_once("controller/homeController.php");
+    require_once("controller/tournamentController.php");
+    require_once("controller/matchController.php");
 
     // End of controller imports
 
 
     //Controller declarations
     $homeController = new HomeController();
+    $tournamentController = new TournamentController();
+    $matchController = new MatchController();
 
     // $exampleController = new ExampleController();
 
@@ -29,18 +33,17 @@
                 $exampleController->displayAllExamples();
                 break;
 
-            case "example":
+            case "tournamentTree":
                 if(isset($_GET["id"])){
-                    $exampleController->displayExample($_GET["id"]);
+                    $tournamentController->displayTournamentTree($_GET["id"]);
                 }
                 break;
 
-            case "postExample":
-                if(isset($_GET["id"]) && isset($_GET["name"])){
-                    $exampleController->postExample($_GET["id"], $_GET["name"]);
+            case "updateTournamentMatch":
+                if(isset($_GET["id_r"])){
+                    $matchController->updateAndCreateMatch($_GET["id_t"],$_GET["id_r"]);
                 }
                 break;
-
             // index.php?action=postTournoi
             // case "postTournoi":
             //     if(...){
