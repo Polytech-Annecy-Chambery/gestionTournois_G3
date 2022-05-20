@@ -24,6 +24,32 @@ class TeamModel extends Model {
         $sql = "INSERT INTO equipe(nom_e) VALUES ($nom)";
         $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
     }
+
+    function addTeam(){
+        $sql = "insert into equipe(nom_e) values('".$_POST["nom_e"]."')";
+        $result = mysqli_query($this->dbConnect(), $sql);
+        return $result;
+    }
+
+    function existTeam(){
+        $conn = $this->dbConnect();
+        $result = mysqli_query($conn, "SELECT * FROM equipe WHERE equipe.nom_e='".$_POST["nom_e"]."'");
+        $donnees=$result->fetch_assoc();
+        
+        if(is_null($donnees)==FALSE){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+
+    function getAllTeamsFromTournament(){
+        $conn = $this->dbConnect();
+        $sql = "SELECT equipe.id_e,nom_e FROM equipe, tournois, appartient WHERE equipe.id_e=appartient.id_e AND appartient.id_t=tournois.id_t AND tournois.nom_t='".$_POST["nom_t"]."'";
+        $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
+        return $result;
+    }
 }
 
 

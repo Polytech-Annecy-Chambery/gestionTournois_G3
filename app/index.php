@@ -1,54 +1,66 @@
-<?php
+<?php 
+
+    // Controller Imports
+
+    // require_once("controller/exampleController.php");
+    require_once("controller/homeController.php");
     include_once("controller/tournamentController.php");
     include_once("controller/TeamController.php");
-    
+
+    // End of controller imports
+
+
     //Controller declarations
-    
+    $homeController = new HomeController();
     $tournamentController = new TournamentController();
     $teamController = new TeamController();
 
-    $teamController->displayAllTeams();
-
-    // $exampleController = new ExampleController();
+   // $exampleController = new ExampleController();
 
     // End of controller declarations
 
 
 
 
-    if( isset($_GET["action"]) ){
+    if( isset($_POST["action"]) ){
 
         
         // Routes
 
-        switch($_GET["action"]){
+        switch($_POST["action"]){
 
-            case "listExamples":
-                $exampleController->displayAllExamples();
+            case "home_button":
+                $homeController->displayHome();
                 break;
 
-            case "example":
-                if(isset($_GET["id"])){
-                    $exampleController->displayExample($_GET["id"]);
-                }
-                break;
-
-            case "postExample":
-                if(isset($_GET["id"]) && isset($_GET["name"])){
-                    $exampleController->postExample($_GET["id"], $_GET["name"]);
-                }
-                break;
-
-            case "showTournaments":
+            case "see_tournaments":
                 $tournamentController->displayAllTournament();
+                break;              
+
+            case "see_teams":
+                $teamController->displayAllTeams();
                 break;
 
-            // index.php?action=postTournoi
-            // case "postTournoi":
-            //     if(...){
-            //         $tournamentController->postTournament(...)
-            //     }
-                    
+
+            case "addTournament":
+                $tournamentController->addTournament();
+                break;
+            
+            case "page_addTournament":
+                $tournamentController->displayAddTournament();
+                break;
+            
+            case "page_addTeam":
+                $teamController->displayAddTeam();
+                break;
+            
+            case "addTeam":
+                $teamController->addTeam();
+                break; 
+
+            case "one_tournament":
+                $tournamentController->displayOneTournament();
+                break;
         }
 
     }
@@ -57,7 +69,7 @@
         // Par défaut charger l'acceuil
         // Pour être plus consistent on pourrait faire un controller juste
         // pour charger l'acceuil mais basta si c'est une page static
-        //$homeController->displayHome();
+        $homeController->displayHome();
     }
 
 ?>

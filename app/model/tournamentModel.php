@@ -27,11 +27,32 @@
         
         function addTournament(){
             $conn = $this->dbConnect();
+            $results = mysqli_query($conn, "INSERT INTO tournois (nom_t, capacite_t, sport_t) VALUES ('".$_POST["nom_t"]."','".$_POST["capacite_t"]."', '".$_POST["sport_t"]."')");
+            return $results;
 
 
             // Code pour ajouter un exemple à la bdd
             // INSERT 
 
+        }
+
+        function existTournament(){
+            $conn = $this->dbConnect();
+            $result = mysqli_query($conn, "SELECT * FROM tournois WHERE tournois.nom_t='".$_POST["nom_t"]."'");
+            $donnees=$result->fetch_assoc();
+            
+            if(is_null($donnees)==FALSE){
+                return TRUE;
+            }
+            else{
+                return FALSE;
+            }
+        }
+
+        function getTournamentID(){
+            $conn = $this->dbConnect();
+            $results = mysqli_query($conn, "SELECT id_t from tournois WHERE tournois.nom='".$_POST["nom_t"]."'");
+            return $results;
         }
 
     }

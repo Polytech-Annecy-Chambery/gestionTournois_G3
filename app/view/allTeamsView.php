@@ -16,16 +16,27 @@ $style = "example.css"; // Set the corresponding stylesheet
 
 <!-- Content goes here -->
 
-<h1>Équipes inscrites : </h1>
+<h2>Équipes inscrites : </h2>
 
 <!-- Afficher l'exemple $example définie dans le controller -->
-<p ><?php
-        while ($row = mysqli_fetch_assoc($teams)) { //on extrait les citoyens
+<p ><ul><?php
+        while ($row = mysqli_fetch_assoc($teams)) { 
             $id_e = $row['id_e'];
             $nom_e = $row['nom_e'];
-            echo "<li>".$nom_e."</li>\n"."<a href=\"index.php?action=displayTeamMatch&id=$id_e\">voir les matchs</a>";
-        };
-    ?>
+        ?>
+        <li>
+        <form method="post">
+            <input type="hidden" name="nom_t" value="<?php echo $id_e?>">	
+			<?php echo $nom_e ?>													
+			<button type="submit" name="action" value="one_team">		
+				Détails
+			</button>
+        </form>
+        </li>
+        <?php
+        }
+        ?>
+        </ul>
 </p>
 
 

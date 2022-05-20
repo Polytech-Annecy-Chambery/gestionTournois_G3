@@ -23,4 +23,20 @@ class TeamController
         require("view/allTeamsView.php");
     }
 
+    function displayAddTeam(){
+        require("view/addTeam.php");
+    }
+
+    function addTeam(){
+        if($this->teamModel->existTeam()){
+            $erreurAjout=TRUE;
+            require("view/addTeam.php");
+        }
+        else{
+            $this->teamModel->addTeam();
+            $teams = $this->teamModel->getAllTeams();
+            require("view/allTeamsView.php");
+        }
+    }
+
 }

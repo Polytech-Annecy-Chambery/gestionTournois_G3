@@ -11,20 +11,25 @@
 
 
     <body>
-        <h1>Tous les tournois créés</h1>
+    <div id="Tournois existants">
+		<h2>Tournois déjà créés :</h2>
+		<ul>
+			<?php while($donnees = $tournaments->fetch_array()){?> 
+				<li>
+					<form id="form_film" method='POST'>
+						<input type="hidden" name="nom_t" value="<?php echo $donnees['nom_t']?>">	
+                        <input type="hidden" name="capacite_t" value="<?php echo $donnees['capacite_t']?>">	
+                        <input type="hidden" name="sport_t" value="<?php echo $donnees['sport_t']?>">	
+						<?php echo $donnees['nom_t'] // CSS pour afficher en differentes couleurs les tournois pleins ou pas?>													
+						<button type="submit" name="action" value="one_tournament">		
+								Détails
+						</button>
+					</form>
+				</li>
+			<?php } ?>
+		</ul>
 
-
-            <?php while($donnees = $tournaments->fetch_array()){ ?>
-                
-
-                    <form id="form_tournament" method='GET'>
-                        <input type="hidden" name="tournament" value="<?php echo $donnees['nom_t'] ?>">
-                        
-                        <button type="submit" name="action" value="un_film">
-                            <?php echo  $donnees['nom_t'] ?> (<?php echo  $donnees['sport_t'] ?>)
-                        </button>
-                    </form>
-            <?php } ?>     
+	</div>  
 
 
 
