@@ -50,6 +50,30 @@ class TeamModel extends Model {
         $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
         return $result;
     }
+
+    function deleteTeam(){
+        $conn = $this->dbConnect();
+        $results = mysqli_query($conn, "DELETE FROM equipe WHERE equipe.nom_e='".$_POST["nom_e"]."'");
+        return $results;
+    }
+
+    function retireTeam($id_t){
+        $conn = $this->dbConnect();
+        $results = mysqli_query($conn, "DELETE FROM appartient WHERE appartient.id_e=".$_POST["id_e"]." AND appartient.id_t=".$id_t);
+        return $results;
+    }
+
+    function addTeam2Tournament($id_t){
+        $conn = $this->dbConnect();
+        $results = mysqli_query($conn, "INSERT INTO appartient (id_e, id_t) VALUES ('".$_POST["add-team"]."', '".$id_t."')");
+        return $results;
+    }
+
+    function getTeams2Add($id_t){
+        $conn = $this->dbConnect();
+        $results = mysqli_query($conn, "SELECT * FROM equipe AS e1 WHERE NOT EXISTS (SELECT * FROM appartient WHERE appartient.id_e=e1.id_e AND appartient.id_t=".$id_t.")");
+        return $results;
+    }
 }
 
 

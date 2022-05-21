@@ -51,9 +51,19 @@
 
         function getTournamentID(){
             $conn = $this->dbConnect();
-            $results = mysqli_query($conn, "SELECT id_t from tournois WHERE tournois.nom='".$_POST["nom_t"]."'");
+            $results = mysqli_query($conn, "SELECT id_t from tournois WHERE tournois.nom_t='".$_POST["nom_t"]."'");
             return $results;
         }
+
+        function deleteTournament(){
+            $conn = $this->dbConnect();
+            $results = mysqli_query($conn, "DELETE FROM tournois WHERE tournois.nom_t='".$_POST["nom_t"]."'");
+            return $results;
+        }
+
+
+
+        
 
     }
 

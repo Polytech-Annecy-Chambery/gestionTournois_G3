@@ -1,14 +1,17 @@
 <?php
 
 require_once("model/TeamModel.php"); // Import the example Model
+require_once("model/matchModel.php");
 
 class TeamController
 {
 
     private $teamModel;
+    private $matchModel;
 
     function __construct(){
-        $this->teamModel = new TeamModel(); // Bien définir le modèle correspondant
+        $this->teamModel = new TeamModel();
+        $this->matchModel = new MatchModel(); // Bien définir le modèle correspondant
 
     } 
     function displayTeam($teamID)
@@ -38,5 +41,20 @@ class TeamController
             require("view/allTeamsView.php");
         }
     }
+
+    function displayOneTeam(){
+        $team = $_POST["nom_e"];
+        require("view/teamView.php");
+    }
+
+    function deleteTeam(){
+        $this->teamModel->deleteTeam();
+        //$this->matchModel->deleteMatchs();
+        //Supprimer les matchs quand on aura ajouté la gestion des matchs
+        $teams = $this->teamModel->getAllTeams();
+        require("view/allTeamsView.php");
+    }
+
+
 
 }

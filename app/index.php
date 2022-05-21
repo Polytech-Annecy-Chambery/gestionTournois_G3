@@ -61,6 +61,38 @@
             case "one_tournament":
                 $tournamentController->displayOneTournament();
                 break;
+            
+            case "one_team":
+                $teamController->displayOneTeam();
+                break;
+            
+            case "delete_tournament":
+                $tournamentController->deleteTournament();
+                break;
+            
+            case "delete_team":
+                $teamController->deleteTeam();
+                break;
+            
+            case "retire_team":
+                $tournamentController->retireTeam();
+                break;
+            
+            case "addTeam2Tournament":
+                $tournamentController->addTeam2Tournament();
+                break;
+            
+            case "tournamentTree":
+                if(isset($_POST["nom_t"])){
+                    $tournamentController->displayTournamentTree($_POST["nom_t"]);
+                }
+                break;
+
+            case "updateTournamentMatch":
+                if(isset($_GET["id_r"])){
+                    $matchController->updateAndCreateMatch($_GET["id_t"],$_GET["id_r"]);
+                }
+                break;
         }
 
     }

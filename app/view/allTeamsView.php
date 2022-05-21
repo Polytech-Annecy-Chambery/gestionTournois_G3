@@ -26,12 +26,23 @@ $style = "example.css"; // Set the corresponding stylesheet
         ?>
         <li>
         <form method="post">
-            <input type="hidden" name="nom_t" value="<?php echo $id_e?>">	
+            <input type="hidden" name="nom_e" value="<?php echo $nom_e?>">	
 			<?php echo $nom_e ?>													
 			<button type="submit" name="action" value="one_team">		
 				Détails
 			</button>
         </form>
+
+        <form id="form_team_delete" method='POST'>
+            <input type="hidden" name="nom_e"	 value="<?php echo $nom_e ?>">	
+            <input type="hidden" name="id_e"	 value="<?php echo $id_e ?>">	
+
+            <button type="submit" name="action" value="delete_team">		
+                    Supprimer
+            </button>
+        </form>
+
+
         </li>
         <?php
         }
