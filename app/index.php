@@ -2,59 +2,106 @@
 
     // Controller Imports
 
-
-    require_once("controller/PlayerController.php");
+    // require_once("controller/exampleController.php");
+    require_once("controller/homeController.php");
+    include_once("controller/tournamentController.php");
+    include_once("controller/TeamController.php");
 
     // End of controller imports
 
 
     //Controller declarations
+    $homeController = new HomeController();
+    $tournamentController = new TournamentController();
+    $teamController = new TeamController();
 
-    $playerController = new PlayerController();
-    $playerController->displayAllPlayers();
+   // $exampleController = new ExampleController();
 
     // End of controller declarations
 
 
 
-    //index.php?action=
-    if( isset($_GET["action"]) ){
+
+    if( isset($_POST["action"]) ){
 
         
         // Routes
 
-        switch($_GET["action"]){
+        switch($_POST["action"]){
 
-            case "liste_joueurs":
-                $exampleController->displayAllExamples();
+            case "home_button":
+                $homeController->displayHome();
                 break;
 
-            case "example":
-                if(isset($_GET["id"])){
-                    $exampleController->displayExample($_GET["id"]);
+            case "see_tournaments":
+                $tournamentController->displayAllTournament();
+                break;              
+
+            case "see_teams":
+                $teamController->displayAllTeams();
+                break;
+
+
+            case "addTournament":
+                $tournamentController->addTournament();
+                break;
+            
+            case "page_addTournament":
+                $tournamentController->displayAddTournament();
+                break;
+            
+            case "page_addTeam":
+                $teamController->displayAddTeam();
+                break;
+            
+            case "addTeam":
+                $teamController->addTeam();
+                break; 
+
+            case "one_tournament":
+                $tournamentController->displayOneTournament();
+                break;
+            
+            case "one_team":
+                $teamController->displayTeamInfos();
+                break;
+
+            case "delete_tournament":
+                $tournamentController->deleteTournament();
+                break;
+            
+            case "delete_team":
+                $teamController->deleteTeam();
+                break;
+            
+            case "retire_team":
+                $tournamentController->retireTeam();
+                break;
+            
+            case "addTeam2Tournament":
+                $tournamentController->addTeam2Tournament();
+                break;
+            
+            case "tournamentTree":
+                if(isset($_POST["nom_t"])){
+                    $tournamentController->displayTournamentTree($_POST["nom_t"]);
                 }
                 break;
 
-            case "postExample":
-                if(isset($_GET["id"]) && isset($_GET["name"])){
-                    $exampleController->postExample($_GET["id"], $_GET["name"]);
+            case "updateTournamentMatch":
+                if(isset($_GET["id_r"])){
+                    $matchController->updateAndCreateMatch($_GET["id_t"],$_GET["id_r"]);
                 }
                 break;
-
-            case "displayPlayer":
-                if(isset($_GET["id"])){
-                    $playerController->displayPlayer($_GET["id"]);
-                }
         }
 
     }
-    /*
+    //index.php/
     else{
         // Par défaut charger l'acceuil
         // Pour être plus consistent on pourrait faire un controller juste
         // pour charger l'acceuil mais basta si c'est une page static
-        require("view/home.php");
+        $homeController->displayHome();
     }
-    */
 
 ?>

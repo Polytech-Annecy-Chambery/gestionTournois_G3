@@ -1,9 +1,6 @@
 <!-- Page de Bienvenue
-
 Liste des tournois (différente couleur s'ils sont complet ou incomplet )
-
 Bouton pour voir toutes les équipes
-
 Formulaire ajouter un tournois -->
 
 <!-- /!\ La vue n'est jamais appelée ailleur que dans le controller correspondant /!\ -->
@@ -13,12 +10,17 @@ Formulaire ajouter un tournois -->
 <?php ob_start(); // Initialize content start ?>
 
 
-    <!-- Content goes here -->
+	<form method="post">
+		<button type="submit" name="action" value="page_addTournament">
+			Ajouter un tournoi
+		</button>
+	</form>
 
-    <h1>Gestion tournois</h1>
-    <p>Salut</p>
-    
-    <!-- End of content -->
+	<form method="post">
+		<button type="submit" name="action" value="page_addTeam">
+			Ajouter une équipe
+		</button>
+	</form>
 
 <?php $content = ob_get_clean(); // Get the html content into the content var ?>
 
