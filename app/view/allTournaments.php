@@ -1,17 +1,14 @@
-<!DOCTYPE HTML>
-<html>
+<?php
+$title = '';  // Set the page Title
+$style = "example.css"; // Set the corresponding stylesheet
+?>
 
-<head>
-    <meta charset="UTF-8">
-</head>
+<?php ob_start(); // Initialize content start ?>
+
 
 <content>
-<?php $content = ob_get_clean(); // Get the html content into the content var ?>
-<?php require("view/template.php"); ?>
 
-
-    <body>
-    <div id="Tournois existants">
+<div id="Tournois existants">
 		<h2>Tournois déjà créés :</h2>
 		<ul>
 			<?php while($donnees = $tournaments->fetch_array()){?> 
@@ -38,7 +35,10 @@
 
 	</div>  
 
-
-
-    </body>
 </content>
+
+<?php $content = ob_get_clean(); // Get the html content into the content var ?>
+<?php require("view/template.php"); ?>
+
+
+   

@@ -12,35 +12,15 @@ Supprimer l'équipe
 
 Et truc en plus : voir les match joués  -->
 
+<?php 
+$title = 'Gestion Tournois';
+$style = 'teamView.css';
 
-<!DOCTYPE HTML>
-<html>
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <style>
-        table{
-            width: 50%;
-        }
-        table,
-        td {
-            text-align: center;
-            border: 1px solid #333;
-        }
-
-        thead {
-            background-color: brown;
-            color: #fff;
-        }
-    </style>
-</head>
+<?php $content = ob_start();?>
 
 <content>
-<?php $content = ob_get_clean(); // Get the html content into the content var ?>
-<?php require("view/template.php"); ?>
-
-
-    <body>
     <div id="Equipe">
 		<h2>Informations sur l'équipe: <?php echo $team ?></h2>
     </br>
@@ -91,13 +71,44 @@ Et truc en plus : voir les match joués  -->
                     echo "<tr>";
                     echo "<td>".$row["nom_j"]."</td>";
                     echo "<td>".$row["prenom_j"]."</td>";
-                    echo "</tr>";
+                    echo "<form method=\"POST\">
+                        <input type=\"hidden\" name=\"nom_j\" value=\"".$row['nom_j']."\">	
+                        <input type=\"hidden\" name=\"prenom_j\" value=\"".$row['prenom_j']."\">
+                        <input type=\"hidden\" name=\"nom_e\" value=\"".$team."\">
+                    ";
+                    echo "<td> <button  type=\"submit\" name=\"action\" value=\"deletePlayer\">Supprimer</button> </td>";
+                    echo "</form></tr>";
+                    
                 }
                 ?>
             </tbody>
         </table>
-    </div>
-    </body>
+        </br>
+        <h3>Ajouter un joueur :</h3>
 
-</html>
-        
+            <form method='post' >
+	
+                <div>
+                    <div>
+                        <label for="nom_j">Nom du joueur:</label>
+                        <input id="nom_j" type="text" name="nom_j" placeholder="Nom du joueur" >
+                    </div>
+                    <div>
+                        <label for="prenom_j">Prénom du joueur:</label>
+                        <input id="prenom_j" type="text" name="prenom_j" placeholder="Prénom du joueur" >
+                    </div>
+                </div>
+                <input type="hidden" name="nom_e" value="<?php echo $team ?>">
+                <div>
+                    <button  type="submit" name="action" value="addPlayer">Ajouter le joueur</button>
+                </div>
+            </form>
+
+    </div>
+
+
+
+
+<?php $content = ob_get_clean(); // Get the html content into the content var ?>
+<?php require("view/template.php"); ?>
+
