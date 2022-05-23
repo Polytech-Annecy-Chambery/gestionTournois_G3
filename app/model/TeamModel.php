@@ -74,6 +74,20 @@ class TeamModel extends Model {
         $results = mysqli_query($conn, "SELECT * FROM equipe AS e1 WHERE NOT EXISTS (SELECT * FROM appartient WHERE appartient.id_e=e1.id_e AND appartient.id_t=".$id_t.")");
         return $results;
     }
+
+    function getTeamMatches(){
+        $conn = $this->dbConnect();
+        $sql = "SELECT * FROM rencontre r JOIN equipe e ON r.id_e1 = e.id_e OR r.id_e2 = e.id_e WHERE e.nom_e = '".$_POST["nom_e"]."'";
+        $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
+        return $result;
+    }
+
+    function getTeamPlayers(){
+        $conn = $this->dbConnect();
+        $sql = "SELECT * FROM joueur j JOIN equipe e ON j.id_e = e.id_e WHERE e.nom_e = '".$_POST["nom_e"]."'";
+        $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
+        return $result;
+    }
 }
 
 

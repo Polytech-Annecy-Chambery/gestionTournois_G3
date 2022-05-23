@@ -38,7 +38,17 @@
 
 	</div>  
 
+<<<<<<< HEAD
 
 
     </body>
 </content>
+=======
+</content>
+
+<?php $content = ob_get_clean(); // Get the html content into the content var ?>
+<?php require("view/template.php"); ?>
+
+
+   
+>>>>>>> 2a62c3886486fe838f42af54810981fb407a8712

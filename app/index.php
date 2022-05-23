@@ -6,6 +6,7 @@
     require_once("controller/homeController.php");
     include_once("controller/tournamentController.php");
     include_once("controller/TeamController.php");
+    include_once("controller/matchController.php");
 
     // End of controller imports
 
@@ -14,6 +15,7 @@
     $homeController = new HomeController();
     $tournamentController = new TournamentController();
     $teamController = new TeamController();
+    $matchController = new MatchController();
 
    // $exampleController = new ExampleController();
 
@@ -63,9 +65,9 @@
                 break;
             
             case "one_team":
-                $teamController->displayOneTeam();
+                $teamController->displayTeamInfos();
                 break;
-            
+
             case "delete_tournament":
                 $tournamentController->deleteTournament();
                 break;
@@ -89,8 +91,8 @@
                 break;
 
             case "updateTournamentMatch":
-                if(isset($_GET["id_r"])){
-                    $matchController->updateAndCreateMatch($_GET["id_t"],$_GET["id_r"]);
+                if(isset($_POST["id_r"])){
+                    $matchController->updateAndCreateMatch($_POST["id_t"],$_POST["id_r"]);
                 }
                 break;
         }

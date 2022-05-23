@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE HTML>
 <html>
 
@@ -11,6 +12,13 @@
 
 
     <body>
+=======
+
+<?php $content = ob_start();?>
+
+<content>
+
+>>>>>>> 2a62c3886486fe838f42af54810981fb407a8712
     <div id="Tournoi">
 		<h2>Tournoi <?php echo $tournament ?></h2>
         Tournoi de : <?php echo $sport ?>
@@ -103,6 +111,7 @@
         ?>
 
     </div>
+<<<<<<< HEAD
 
         
 
@@ -121,3 +130,11 @@
 
     </body>
 </content>
+=======
+	</div>  
+</content>
+
+<?php $content = ob_get_clean(); // Get the html content into the content var ?>
+<?php require("view/template.php"); ?>
+
+>>>>>>> 2a62c3886486fe838f42af54810981fb407a8712

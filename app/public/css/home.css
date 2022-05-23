@@ -21,3 +21,17 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+button{
+    font-size:1.1rem;
+    background-color : var(--very-l-red);
+    width:200px;
+    margin:2vh 0.5vw;
+    padding:2vh 0.5vw;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px ;
+    cursor: pointer;
+}
