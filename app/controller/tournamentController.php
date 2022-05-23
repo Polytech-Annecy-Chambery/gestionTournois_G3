@@ -1,7 +1,7 @@
 <?php
 
 
-    require_once("model/TournamentModel.php"); // Import the example Model
+    require_once("model/tournamentModel.php"); // Import the example Model
 
     class TournamentController{
 

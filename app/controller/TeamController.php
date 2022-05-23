@@ -42,11 +42,6 @@ class TeamController
         }
     }
 
-    function displayOneTeam(){
-        $team = $_POST["nom_e"];
-        require("view/teamView.php");
-    }
-
     function deleteTeam(){
         $this->teamModel->deleteTeam();
         //$this->matchModel->deleteMatchs();
@@ -55,6 +50,13 @@ class TeamController
         require("view/allTeamsView.php");
     }
 
+    function displayTeamInfos()
+    {
+        $team = $_POST["nom_e"];
+        $matches = $this->teamModel->getTeamMatches();
+        $players = $this->teamModel->getTeamPlayers();
+        require("view/teamView.php");
+    }
 
 
 }
