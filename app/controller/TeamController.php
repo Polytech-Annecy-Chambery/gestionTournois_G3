@@ -66,10 +66,11 @@ class TeamController
         if ($this->teamModel->existPlayer() == FALSE){
             $this->teamModel->addPlayer($id_t);
         }
+        else {
+            $erreurAjout=TRUE;
+        }
         $matches = $this->teamModel->getTeamMatches();
         $players = $this->teamModel->getTeamPlayers();
-
-
         require("view/teamView.php");
     }
 
@@ -79,8 +80,6 @@ class TeamController
         $this->teamModel->removePlayer();
         $matches = $this->teamModel->getTeamMatches();
         $players = $this->teamModel->getTeamPlayers();
-
-
         require("view/teamView.php");
     }
 
