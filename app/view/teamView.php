@@ -84,7 +84,7 @@ $style = 'teamView.css';
             </tbody>
         </table>
         </br>
-        <h3>Ajouter un joueur :</h3>
+        <h2>Ajouter un joueur à l'équipe:</h2>
 
             <form method='post' >
 	
@@ -99,10 +99,19 @@ $style = 'teamView.css';
                     </div>
                 </div>
                 <input type="hidden" name="nom_e" value="<?php echo $team ?>">
+		</br>
                 <div>
                     <button  type="submit" name="action" value="addPlayer">Ajouter le joueur</button>
                 </div>
             </form>
+	    </br>
+            <?php 
+		if(isset($erreurAjout)){
+			if($erreurAjout){
+				echo "Attention! Ce joueur est déjà présent dans une équipe.";
+			}
+		}
+	    ?>
 
     </div>
 
