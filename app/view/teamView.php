@@ -12,35 +12,15 @@ Supprimer l'équipe
 
 Et truc en plus : voir les match joués  -->
 
+<?php 
+$title = 'Gestion Tournois';
+$style = 'teamView.css';
 
-<!DOCTYPE HTML>
-<html>
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <style>
-        table{
-            width: 50%;
-        }
-        table,
-        td {
-            text-align: center;
-            border: 1px solid #333;
-        }
-
-        thead {
-            background-color: brown;
-            color: #fff;
-        }
-    </style>
-</head>
+<?php $content = ob_start();?>
 
 <content>
-<?php $content = ob_get_clean(); // Get the html content into the content var ?>
-<?php require("view/template.php"); ?>
-
-
-    <body>
     <div id="Equipe">
 		<h2>Informations sur l'équipe: <?php echo $team ?></h2>
     </br>
@@ -97,7 +77,10 @@ Et truc en plus : voir les match joués  -->
             </tbody>
         </table>
     </div>
-    </body>
 
-</html>
-        
+
+
+
+<?php $content = ob_get_clean(); // Get the html content into the content var ?>
+<?php require("view/template.php"); ?>
+

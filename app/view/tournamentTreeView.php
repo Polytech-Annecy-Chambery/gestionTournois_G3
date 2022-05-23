@@ -33,22 +33,31 @@
         
 
     $roundsMatches_arr = [];
+
     for($i = 0; $i < $rounds; $i++){
-        if($i == 0)
-            $roundsMatches_arr[$i] = array_filter($matches, function($v, $k){
-                global $i;
-                if($v["tour_r"] == 1)
-                    return true;
-                else
-                    return false;
-            }, ARRAY_FILTER_USE_BOTH);
-        else{
-            $roundsMatches_arr[$i] = [];
-            for($j = 0; $j < $tournament["capacite_t"] / pow(2, $i + 1); $j++){
-                $roundsMatches_arr[$i][] = [];
-            }
+        
+    
+        $found_matches = array_filter($matches, function($v, $k) use ($i){
+
+            if($v["tour_r"] == ($i + 1)){
+                return true;
+            }  
+            else
+                return false;
+        }, ARRAY_FILTER_USE_BOTH);
+
+        
+
+        $roundsMatches_arr[$i] = $found_matches;
+
+        while(count($roundsMatches_arr[$i]) < $tournament["capacite_t"] / pow(2, $i + 1) ){
+            $roundsMatches_arr[$i][] = [];
         }
+
+        $roundsMatches_arr[$i] = array_values($roundsMatches_arr[$i]);
+
     }
+
 
 
     for($i = 0; $i < $rounds; $i++){
@@ -59,9 +68,23 @@
             <?php
             foreach($roundsMatches_arr[$i] as $k => $match){
                 ?>
-                <form action="<?="index.php?action=updateTournamentMatch&id_t=".$tournament["id_t"]."&id_r=".$match["id_r"] ?>" method="post" class="match">
+                <form method="post" class="match">
                     
-                        <div class="match-label"><?= $match_labels[$i] == "Finale" ? $match_labels[$i] : $match_labels[$i] . " " . ($k + 1) ?> <input type="submit" ></div>
+                        <input name="id_t" type="hidden" value=<?= $tournament["id_t"] ?>>
+                        <input name="numMatch" type="hidden" value=<?= $k + 1?>>
+
+                        <?php if(isset($match["id_r"])){ ?>
+                        <input name="id_r" type="hidden" value=<?= $match["id_r"] ?>>
+                        <?php }?>
+
+                        <div class="match-label"><?= $match_labels[$i] == "Finale" ? $match_labels[$i] : $match_labels[$i] . " " . ($k + 1) ?> 
+                        
+                        <?php if(isset($match["id_r"])){ ?>
+                            <button type="submit" name="action" value="updateTournamentMatch" >Update</button>
+                        <?php }?>
+                        
+                    
+                        </div>
                         <div class="match-teams">
                             <div class="match-team"><?= isset($match["nom_e1"]) ? $match["nom_e1"] : "Gagnant " . $match_labels[$i - 1] . " " . (($k) * 2 + 1 ) ?>
                             <?php
@@ -76,7 +99,7 @@
                             <?php
                                 if(isset($match["score_e2_r"])){
                                     ?>
-                                    <span class="team-score"> <span class="team-score"><input min="0" name="match['<?= $match["id_e2"] ?>'][]" type="number" width="10" value="<?= $match["score_e2_r"] ?>"></span></span>
+                                    <span class="team-score"> <input min="0" name="match['<?= $match["id_e2"] ?>'][]" type="number" width="10" value="<?= $match["score_e2_r"] ?>"></span>
                                     <?php
                                 }
                             ?>
