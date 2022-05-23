@@ -1,1 +1,47 @@
 /* Style commun à toutes les pages */
+:root{
+    --dark-red : #6D1212;
+    --red : #831D1E;
+    --light-red : #831D1E;
+    --very-l-red : #A71C1C;
+}
+
+@font-face {
+    font-family: "Sporter";
+    src: url("../font/Sporter.ttf");
+}
+
+*{
+    padding:0;
+    margin:0;
+}
+
+html{
+    font-size:15px;
+}
+
+h1{
+    font-size:2.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 2vh 0 4vh 0;
+}
+
+h2{
+    font-size:1.3rem;
+    margin: 2vh 0 2vh 0;
+}
+
+button{
+    font-size:1.1rem;
+    background-color : var(--very-l-red);
+    width:200px;
+    margin:2vh 0.5vw;
+    padding:2vh 0.5vw;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px ;
+    cursor: pointer;
+}

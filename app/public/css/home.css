@@ -1,0 +1,23 @@
+.background{
+    background-image: url(../image/background.webp);
+    text-align: center;
+    color : white;
+    width: 100vw;
+    background-repeat: repeat;
+    height: calc(100vh - 100px);
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.content{
+    background: rgba(0, 0, 0, 0.8);
+    padding:3vh 4vw 3vh 4vw;
+
+}
+
+.button_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
