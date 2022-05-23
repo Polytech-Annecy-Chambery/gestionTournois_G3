@@ -4,12 +4,14 @@
 
     // require_once("controller/exampleController.php");
     require_once("controller/homeController.php");
+    require_once("controller/tournamentController.php");
 
     // End of controller imports
 
 
     //Controller declarations
     $homeController = new HomeController();
+    $tournamentController= new TournamentController();
 
     // $exampleController = new ExampleController();
 
@@ -55,7 +57,8 @@
         // Par défaut charger l'acceuil
         // Pour être plus consistent on pourrait faire un controller juste
         // pour charger l'acceuil mais basta si c'est une page static
-        $homeController->displayHome();
+        //$homeController->displayHome();
+        $tournamentController->displayCreationTournament();
     }
 
 ?>

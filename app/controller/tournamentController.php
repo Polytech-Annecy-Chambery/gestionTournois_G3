@@ -1,23 +1,37 @@
 <?php
 
 
-    require_once("model/TournamentModel.php"); // Import the example Model
+    require_once("model/tournamentModel.php"); // Import the example Model
+    require_once("model/TeamModel.php");
 
-    class ExampleController{
+    class TournamentController {
 
-        private $tournamentModel = new ExampleModel(); // Bien définir le modèle correspondant
+        private $tournamentModel;
+        private $teamModel;
+        
+        function __construct(){
+            $this->tournamentModel = new TournamentModel;
+            $this->teamModel = new TeamModel;
+        }
 
 
-        function postTournament(){
+        // function postTournament(){
 
-            // Effectuer ici tous les traitements et vérifications des données nécessaires
+        //     // Effectuer ici tous les traitements et vérifications des données nécessaires
             
 
-            // Ajouter l'example à la bdd avec le modele
-            $this->tournamentModel->addTournament();
+        //     // Ajouter l'example à la bdd avec le modele
+        //     $this->tournamentModel->addTournament();
 
-            //header(location = ....);
+        //     //header(location = ....);
+        // }
 
+        function displayCreationTournament(){
+            $teams = $this->teamModel->getAllTeams();
+            include("view/tournamentView.php");
         }
+
+         
+
     }
 ?>
