@@ -99,6 +99,7 @@
         }
 
         function displayTournamentTree($tournamentName){
+
             $id = $this->tournamentModel->getTournamentID();
             $tournamentId = $id->fetch_array()["id_t"];
             $tournament = $this->tournamentModel->getTournament($tournamentId)->fetch_array();

@@ -1,6 +1,33 @@
 .tree{
     display: flex;
     width: 80%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+span.won{
+    border: 2px solid #28a745;
+    border-style: inset;
+}
+
+.no-team{
+    color: rgba(0, 0, 0, 0.404);
+}
+
+.tree button{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #28a745;
+    border-style: none;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.tree button:hover{
+
+    background-color: #1d9439;
 }
 
 .round{
@@ -14,7 +41,6 @@
     padding: 15px;
     font-size: 1.1rem;
     color: rgb(102, 102, 102);
-    font-family:'Lucida Sans';
     margin-top: 0px;
 }
 
@@ -34,18 +60,20 @@
     display: flex;
     flex-direction: column;
     width: 250px;
-    font-family: 'Lucida Sans';
     margin-top: 0px;
     -webkit-box-shadow: -1px 6px 13px -5px rgba(0,0,0,0.19); 
 box-shadow: -1px 6px 13px -5px rgba(0,0,0,0.19);
 }
 
 .match-label{
+    justify-content: space-between;
+    display: flex;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding: 10px;
     color: white;
     background-color: rgb(95, 95, 107);
+    font-weight: 500;
 }
 
 .match-teams{
@@ -80,7 +108,6 @@ box-shadow: -1px 6px 13px -5px rgba(0,0,0,0.19);
 }
 
 .team-score input{
-    font-family: "Lucida Sans";
     width: 150%;
     border: none;
     background-color: transparent;
