@@ -91,11 +91,11 @@ $style = 'teamView.css';
                 <div>
                     <div>
                         <label for="nom_j">Nom du joueur:</label>
-                        <input id="nom_j" type="text" name="nom_j" placeholder="Nom du joueur" >
+                        <input id="nom_j" type="text" name="nom_j" placeholder="Entrez un nom" >
                     </div>
                     <div>
                         <label for="prenom_j">Prénom du joueur:</label>
-                        <input id="prenom_j" type="text" name="prenom_j" placeholder="Prénom du joueur" >
+                        <input id="prenom_j" type="text" name="prenom_j" placeholder="Entrez un prénom" >
                     </div>
                 </div>
                 <input type="hidden" name="nom_e" value="<?php echo $team ?>">
