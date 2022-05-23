@@ -55,7 +55,7 @@ $style = 'teamView.css';
         </table>
         </br>
         </br>
-        <table>
+        <table class ="tab_joueurs">
             <thead>
                 <tr>
                     <th colspan="2">Joueurs de l'équipe</th>
