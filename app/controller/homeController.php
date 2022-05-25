@@ -1,6 +1,6 @@
 <?php
 
-require_once("model/TournamentModel.php");
+require_once("model/tournamentModel.php");
 
 Class HomeController {
 

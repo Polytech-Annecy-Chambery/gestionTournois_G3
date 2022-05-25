@@ -51,6 +51,13 @@ class TeamModel extends Model {
         return $result;
     }
 
+    function countAllTeamsFromTournament(){
+        $conn = $this->dbConnect();
+        $sql = "SELECT count(*) FROM equipe, tournois, appartient WHERE equipe.id_e=appartient.id_e AND appartient.id_t=tournois.id_t AND tournois.nom_t='".$_POST["nom_t"]."'";
+        $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
+        return $result;
+    }
+
     function deleteTeam(){
         $conn = $this->dbConnect();
         $results = mysqli_query($conn, "DELETE FROM equipe WHERE equipe.nom_e='".$_POST["nom_e"]."'");

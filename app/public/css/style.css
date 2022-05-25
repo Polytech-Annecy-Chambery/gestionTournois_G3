@@ -6,10 +6,10 @@
     --very-l-red : #A71C1C;
 }
 
-@font-face {
+/* @font-face {
     font-family: "Sporter";
     src: url("../font/Sporter.ttf");
-}
+} */
 
 *{
     padding:0;
@@ -23,11 +23,17 @@ html{
 h1{
     font-size:2.2rem;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: bold;
     margin: 2vh 0 4vh 0;
 }
 
 h2{
     font-size:1.3rem;
     margin: 2vh 0 2vh 0;
+}
+
+.background{
+    width: 100vw;
+    top:8vh;
+    height: calc(100vh - 16vh);
 }

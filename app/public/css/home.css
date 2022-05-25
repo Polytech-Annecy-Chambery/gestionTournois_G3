@@ -1,10 +1,7 @@
 .background{
     background-image: url(../image/background.webp);
-    text-align: center;
-    color : white;
-    width: 100vw;
     background-repeat: repeat;
-    height: calc(100vh - 100px);
+    text-align: center;
     display: table-cell;
     vertical-align: middle;
 }
@@ -12,7 +9,7 @@
 .content{
     background: rgba(0, 0, 0, 0.8);
     padding:3vh 4vw 3vh 4vw;
-
+    color : white;
 }
 
 .button_container{
@@ -22,9 +19,9 @@
     flex-wrap: wrap;
 }
 
-button{
+.button_container button{
     font-size:1.1rem;
-    background-color : var(--very-l-red);
+    background-color : var(--light-red);
     width:200px;
     margin:2vh 0.5vw;
     padding:2vh 0.5vw;
