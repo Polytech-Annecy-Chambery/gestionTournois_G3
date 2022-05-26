@@ -67,6 +67,10 @@
             case "one_team":
                 $teamController->displayTeamInfos();
                 break;
+            
+            case "page_addTeam":
+                $teamController->displayAddTeam();
+                break;
 
             case "delete_tournament":
                 $tournamentController->deleteTournament();

@@ -9,9 +9,8 @@ Formulaire ajouter un tournois -->
 
 <?php ob_start(); // Initialize content start ?>
 
-    <div id='ajoutTournois'>
-			<h2>Ajouter un Tournois :</h2>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 			<form method='post' action='index.php?action=postTournament'>
 
@@ -42,6 +41,8 @@ Formulaire ajouter un tournois -->
 			</form>
 		</div>
 =======
+=======
+>>>>>>> 4f679bcd722e1d2efd8ef1a20849063c18f8a451
 	<form method="post">
 		<button type="submit" name="action" value="page_addTournament">
 			Ajouter un tournoi
@@ -53,7 +54,10 @@ Formulaire ajouter un tournois -->
 			Ajouter une équipe
 		</button>
 	</form>
+<<<<<<< HEAD
 >>>>>>> c7d263df67d022fc86b69d71334d5bd4d17e7216
+=======
+>>>>>>> 4f679bcd722e1d2efd8ef1a20849063c18f8a451
 
 <?php $content = ob_get_clean(); // Get the html content into the content var ?>
 
