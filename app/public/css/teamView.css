@@ -1,0 +1,18 @@
+table{
+    width: 50%;
+}
+
+td {
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.tab_joueurs td:last-child {
+    width: 0;
+    padding: 0;
+}
+
+thead {
+    background-color: brown;
+    color: #fff;
+}
