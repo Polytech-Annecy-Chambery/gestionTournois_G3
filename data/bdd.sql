@@ -245,7 +245,8 @@ CREATE TABLE `tournois` (
   `id_t` int(11) NOT NULL,
   `sport_t` varchar(50) NOT NULL,
   `capacite_t` enum('4','8','16') NOT NULL,
-  `nom_t` varchar(100) NOT NULL
+  `nom_t` varchar(100) NOT NULL,
+  `started` tinyint(1) NOT NULL DEFAULT '0',
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

@@ -19,6 +19,38 @@ class TeamModel extends Model {
         return $result;
     }
 
+    function addPlayer($id_t){
+        $sql = "insert into joueur(nom_j, prenom_j, id_e) values('".$_POST["nom_j"]."', '".$_POST["prenom_j"]."', ".$id_t.")";
+        $result = mysqli_query($this->dbConnect(), $sql);
+        return $result;
+    }
+
+    function existPlayer(){
+        $conn = $this->dbConnect();
+        $result = mysqli_query($conn, "SELECT * FROM joueur WHERE nom_j='".$_POST["nom_j"]."'and prenom_j='".$_POST["prenom_j"]."'");
+        $donnees=$result->fetch_assoc();
+        
+        if(is_null($donnees)==FALSE){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+
+    function removePlayer(){
+        $sql = "delete from joueur where nom_j = '".$_POST["nom_j"]."' and prenom_j = '".$_POST["prenom_j"]."'";
+        $result = mysqli_query($this->dbConnect(), $sql);
+        return $result;
+    }
+
+    function getTeamID( $nom_e ){
+        $conn = $this->dbConnect();
+        $sql = "SELECT id_e,nom_e FROM equipe WHERE nom_e='".$nom_e."'";
+        $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
+        return $result;
+    }
+
     function addTeams($nom){
         $conn = $this->dbConnect();
         $sql = "INSERT INTO equipe(nom_e) VALUES ($nom)";

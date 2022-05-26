@@ -103,10 +103,23 @@
 
         }
 
+        function createMatches($teams, $tournamentID){
+            for($i = 0; $i < count($teams) - 1; $i += 2){
+                $this->matchModel->createMatch($tournamentID, $teams[$i]["0"], $teams[$i + 1]["0"]);
+            }
+        }
+
         function displayTournamentTree($tournamentName){
             $id = $this->tournamentModel->getTournamentID();
             $tournamentId = $id->fetch_array()["id_t"];
             $tournament = $this->tournamentModel->getTournament($tournamentId)->fetch_array();
+
+            if($tournament["started"] == 0){
+                $teams = $this->teamModel->getAllTeamsFromTournament($tournamentId)->fetch_all();
+                $this->createMatches($teams, $tournamentId);
+                $this->tournamentModel->startTournament($tournamentId);
+            }
+
             $matches = $this->matchModel->getMatchsFromTournamentID($tournamentId);
 
             require("view/tournamentTreeView.php");

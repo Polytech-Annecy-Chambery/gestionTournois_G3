@@ -95,6 +95,14 @@
                     $matchController->updateAndCreateMatch($_POST["id_t"],$_POST["id_r"]);
                 }
                 break;
+
+            case "addPlayer":
+                $teamController->addPlayer();
+                break;
+
+            case "deletePlayer":
+                $teamController->deletePlayer();
+                break;
         }
 
     }

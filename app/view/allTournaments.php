@@ -16,6 +16,9 @@ $style = "allTournaments.css"; // Set the corresponding stylesheet
 			 
 				<div <?php echo ($compteur % 2==0 ? 'class=unTournoisRed' : 'class=unTournois'); ?>>
 					<form id="form_tournament" method='POST'>
+						<input type="hidden" name="nom_t" value="<?php echo $donnees['nom_t']?>">	
+                        <input type="hidden" name="capacite_t" value="<?php echo $donnees['capacite_t']?>">	
+                        <input type="hidden" name="sport_t" value="<?php echo $donnees['sport_t']?>">	
 						<p>
 						<?php echo $donnees['nom_t']?>
 						</p>													

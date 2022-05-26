@@ -63,7 +63,11 @@
 
 
 
-        
+        function startTournament($tournamentID){
+            $conn = $this->dbConnect();
+            $results = mysqli_query($conn, "UPDATE tournois SET started = 1 WHERE id_t = $tournamentID");
+            return $results;
+        }
 
     }
 
