@@ -1,6 +1,6 @@
 <?php
 
-require_once("model/TeamModel.php"); // Import the example Model
+require_once("model/teamModel.php"); // Import the example Model
 require_once("model/matchModel.php");
 
 class TeamController

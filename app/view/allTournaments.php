@@ -1,11 +1,12 @@
 <?php 
-$title = 'Gestion Tournois';  // Set the page Title
-$style = "allTournaments.css"; // Set the corresponding stylesheet
-
+$title = 'Gestion Tournois';
+$style = "allTournaments.css"; 
+ob_start();
 
 ?>
 
-<?php ob_start(); // Initialize content start ?>
+<content>
+
     <div class="list_tournois_content">
 		<h1 class = "title">Liste des Tournois</h1>
 		<div class ="lesTournois">
@@ -39,6 +40,9 @@ $style = "allTournaments.css"; // Set the corresponding stylesheet
 
 	</div>  
 
-<?php $content = ob_get_clean(); // Get the html content into the content var ?>
-<?php require("template.php"); ?>
+</content>
 
+	<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>

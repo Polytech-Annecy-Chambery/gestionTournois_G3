@@ -2,11 +2,12 @@
 
     // Controller Imports
 
-    // require_once("controller/exampleController.php");
+
     require_once("controller/homeController.php");
     include_once("controller/tournamentController.php");
-    include_once("controller/TeamController.php");
+    include_once("controller/teamController.php");
     include_once("controller/matchController.php");
+    require_once("controller/createTeamController.php");
 
     // End of controller imports
 
@@ -16,8 +17,8 @@
     $tournamentController = new TournamentController();
     $teamController = new TeamController();
     $matchController = new MatchController();
-
-   // $exampleController = new ExampleController();
+    $teamController = new CreateTeamController();
+    
 
     // End of controller declarations
 
@@ -106,6 +107,9 @@
 
             case "deletePlayer":
                 $teamController->deletePlayer();
+            case "Ajouter" :
+                $teamController->postTeam($_GET['nom']);
+                require("view/teamView.php");
                 break;
         }
 
@@ -116,6 +120,8 @@
         // Pour être plus consistent on pourrait faire un controller juste
         // pour charger l'acceuil mais basta si c'est une page static
         $homeController->displayHome();
+        //require("view/teamView.php");
     }
+    
 
 ?>

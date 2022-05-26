@@ -1,11 +1,12 @@
 <?php 
-$title = 'Gestion Tournois';  // Set the page Title
-$style = "home.css"; // Set the corresponding stylesheet
-
+$title = 'Gestion Tournois';
+$style = "home.css"; 
+ob_start();
 
 ?>
 
-<?php ob_start(); // Initialize content start ?>
+
+<content>
 
 <div class="content">
 <h1>LE MEILLEUR GESTIONNAIRE DE COMPÉTITIONS SPORTIVES</h1>
@@ -25,8 +26,9 @@ $style = "home.css"; // Set the corresponding stylesheet
 	</form>
 	</div>
 </div>
+</content>
 
-
-<?php $content = ob_get_clean(); // Get the html content into the content var ?>
-
-<?php require('template.php'); ?>
+<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>

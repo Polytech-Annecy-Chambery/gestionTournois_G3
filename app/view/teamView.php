@@ -1,24 +1,10 @@
-<!-- Voir les joueurs de l'équipe
-
-Ajouter un joueur
-
-Modifier un joueur
-
-supprimer un joueur
-
-Modifier le nom de l'équipe
-
-Supprimer l'équipe
-
-Et truc en plus : voir les match joués  -->
-
 <?php 
 $title = 'Gestion Tournois';
-$style = 'teamView.css';
+$style = "teamView.css"; 
+ob_start();
 
 ?>
 
-<?php $content = ob_start();?>
 
 <content>
     <div id="Equipe">
@@ -116,8 +102,8 @@ $style = 'teamView.css';
     </div>
 
 
-
-
-<?php $content = ob_get_clean(); // Get the html content into the content var ?>
-<?php require("view/template.php"); ?>
+<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>
 

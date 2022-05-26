@@ -1,11 +1,11 @@
-<!-- /!\ La vue n'est jamais appelée ailleur que dans le controller correspondant /!\ -->
 <?php 
-    $title = 'Gestion Tournoi';  // Set the page Title
-    $style = "tournamentTree.css"; // Set the corresponding stylesheet
+$title = 'Gestion Tournois';
+$style = "tournamentTree.css"; 
+ob_start();
+
 ?>
 
-<?php ob_start(); // Initialize content start ?>
-
+<content>
 <div class="tree">
     
     <?php
@@ -163,7 +163,8 @@
 
     
 </div>
-
-<?php $content = ob_get_clean(); // Get the html content into the content var ?>
-
-<?php require('template.php'); ?>
+</content>
+<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>

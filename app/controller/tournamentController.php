@@ -46,7 +46,7 @@
                 $teams2add = $this->teamModel->getTeams2Add($id_t);
                 $teams = $this->teamModel->getAllTeamsFromTournament();
                 
-                require("view/OneTournament.php");
+                require("view/oneTournament.php");
             }
         }
 
@@ -59,7 +59,7 @@
             $teams2add = $this->teamModel->getTeams2Add($id_t);
 
             $teams = $this->teamModel->getAllTeamsFromTournament();;
-            require("view/OneTournament.php");
+            require("view/oneTournament.php");
         }
 
         function deleteTournament(){
@@ -82,7 +82,7 @@
             
             $teams2add = $this->teamModel->getTeams2Add($id_t);
             $teams = $this->teamModel->getAllTeamsFromTournament();
-            require("view/OneTournament.php");
+            require("view/oneTournament.php");
     
         }
 
@@ -99,7 +99,7 @@
             
             $teams2add = $this->teamModel->getTeams2Add($id_t);
             $teams = $this->teamModel->getAllTeamsFromTournament();
-            require("view/OneTournament.php");
+            require("view/oneTournament.php");
 
         }
 

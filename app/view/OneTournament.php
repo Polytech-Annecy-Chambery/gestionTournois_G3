@@ -1,5 +1,10 @@
+<?php 
+$title = 'Gestion Tournois';
+$style = "home.css"; 
+ob_start();
 
-<?php $content = ob_start();?>
+?>
+
 
 <content>
 
@@ -98,6 +103,8 @@
 	</div>  
 </content>
 
-<?php $content = ob_get_clean(); // Get the html content into the content var ?>
-<?php require("view/template.php"); ?>
+<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>
 

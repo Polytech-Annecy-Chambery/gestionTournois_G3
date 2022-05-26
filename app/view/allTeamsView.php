@@ -1,24 +1,13 @@
-<!-- Voir toutes les équipes
-Voir le nombre de joueurs par équipe
-Supprimer des équipes d'un simple click
-Quand on clique sur l'équipe -> uneEquipe.php -->
+<?php 
+$title = 'Gestion Tournois';
+ob_start();
 
-
-
-<!-- /!\ La vue n'est jamais appelée ailleur que dans le controller correspondant /!\ -->
-
-<?php
-$title = '';  // Set the page Title
-$style = "example.css"; // Set the corresponding stylesheet
 ?>
 
-<?php ob_start(); // Initialize content start ?>
-
-<!-- Content goes here -->
+<content>
 
 <h2>Équipes inscrites : </h2>
 
-<!-- Afficher l'exemple $example définie dans le controller -->
 <p ><ul><?php
         while ($row = mysqli_fetch_assoc($teams)) { 
             $id_e = $row['id_e'];
@@ -51,8 +40,9 @@ $style = "example.css"; // Set the corresponding stylesheet
 </p>
 
 
-<!-- End of content -->
+<content>
 
-<?php $content = ob_get_clean(); // Get the html content into the content var ?>
-
-<?php require('template.php'); ?>
+<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>
