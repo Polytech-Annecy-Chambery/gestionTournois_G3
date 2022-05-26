@@ -1,7 +1,7 @@
 <?php
     // /!\ Le modèle n'est jamais appelée ailleur que dans le controller correspondant /!\
 
-    require_once("model/model.php"); // Import the Model Class
+    require_once("model.php"); // Import the Model Class
 
     class TournamentModel extends Model {
 

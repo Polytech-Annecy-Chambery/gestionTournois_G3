@@ -67,6 +67,14 @@
 
             $this->matchModel->updateMatchScore($matchID, $teams[0][1], $teams[1][1]);
             //$this->matchModel->createMatch($tournamentID, $teams[0], $teams[1]);
+            echo print_r($_POST);
+            echo $_POST["match"][0];
+            //$this->matchModel->updateMatchScore($matchID, $_POST["match"][0], $_POST["match"][1]);
+            $teams = [];
+            foreach($_POST["match"] as $k => $v){
+                $teams[] = [$k, $v];
+            }
+            $this->matchModel->createMatch($tournamentID, $teams[0], $teams[1]);
 
 
             echo

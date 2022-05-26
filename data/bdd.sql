@@ -207,8 +207,18 @@ INSERT INTO `manga` (`id_manga`, `titre_manga`, `auteur_manga`) VALUES
 
 CREATE TABLE `rencontre` (
   `id_r` int(11) NOT NULL,
+<<<<<<< HEAD
   `id_e1` int(11),
   `id_e2` int(11),
+=======
+<<<<<<< HEAD
+  `id_e1` int(11) NOT NULL,
+  `id_e2` int(11) NOT NULL,
+=======
+  `id_e1` int(11),
+  `id_e2` int(11),
+>>>>>>> 2a62c3886486fe838f42af54810981fb407a8712
+>>>>>>> 12f6765ac2e320714fc574ad259e78fd4e5d48df
   `score_e1_r` int(11) DEFAULT NULL,
   `score_e2_r` int(11) DEFAULT NULL,
   `tour_r` int(11) NOT NULL,

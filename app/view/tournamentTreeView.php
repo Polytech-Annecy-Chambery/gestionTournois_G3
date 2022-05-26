@@ -60,6 +60,24 @@
 
 
 
+    // for($i = 0; $i < $rounds; $i++){
+    //     if($i == 0)
+    //         $roundsMatches_arr[$i] = array_filter($matches, function($v, $k){
+    //             global $i;
+    //             if($v["tour_r"] == 1)
+    //                 return true;
+    //             else
+    //                 return false;
+    //         }, ARRAY_FILTER_USE_BOTH);
+    //     else{
+    //         $roundsMatches_arr[$i] = [];
+    //         for($j = 0; $j < $tournament["capacite_t"] / pow(2, $i + 1); $j++){
+    //             $roundsMatches_arr[$i][] = [];
+    //         }
+    //     }
+    // }
+
+
     for($i = 0; $i < $rounds; $i++){
         ?>
         <div class="round">
@@ -124,7 +142,8 @@
                             <?php
                                 if(isset($match["score_e2_r"])){
                                     ?>
-                                    <span class="team-score <?php if($match["score_e2_r"] > $match["score_e1_r"]) echo "won"; ?>"> <input min="0" name="match['<?= $match["id_e2"] ?>'][]" type="number" width="10" value="<?= $match["score_e2_r"] ?>"></span>
+                                    <span class="team-score <?php if($match["score_e2_r"] > $match["score_e1_r"]) echo "won"; ?> " > <input min="0" name="match['<?= $match["id_e2"] ?>'][]" type="number" width="10" value="<?= $match["score_e2_r"] ?>"></span>
+                                    
                                     <?php
                                 }
                             ?>

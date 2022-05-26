@@ -42,6 +42,11 @@ class TeamController
         }
     }
 
+    function displayOneTeam(){
+        $team = $_POST["nom_e"];
+        require("view/teamView.php");
+    }
+
     function deleteTeam(){
         $this->teamModel->deleteTeam();
         //$this->matchModel->deleteMatchs();

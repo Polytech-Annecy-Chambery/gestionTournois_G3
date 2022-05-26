@@ -40,7 +40,12 @@
                 $tournament = $_POST["nom_t"];
                 $capacity = $_POST["capacite_t"];
                 $sport = $_POST["sport_t"];
-                $teams = $this->teamModel->getAllTeams();
+
+                $data = $this->tournamentModel->getTournamentID();
+                $id_t = $data->fetch_array()["id_t"];
+                $teams2add = $this->teamModel->getTeams2Add($id_t);
+                $teams = $this->teamModel->getAllTeamsFromTournament();
+                
                 require("view/OneTournament.php");
             }
         }
@@ -71,11 +76,11 @@
             $sport = $_POST["sport_t"];
             $data = $this->tournamentModel->getTournamentID();
             $id_t = $data->fetch_array()["id_t"];
-            $teams2add = $this->teamModel->getTeams2Add($id_t);
+
 
             $this->teamModel->retireTeam($id_t);
             
-
+            $teams2add = $this->teamModel->getTeams2Add($id_t);
             $teams = $this->teamModel->getAllTeamsFromTournament();
             require("view/OneTournament.php");
     
@@ -88,11 +93,11 @@
             $sport = $_POST["sport_t"];
             $data = $this->tournamentModel->getTournamentID();
             $id_t = $data->fetch_array()["id_t"];
-            $teams2add = $this->teamModel->getTeams2Add($id_t);
+            
 
             $this->teamModel->addTeam2Tournament($id_t);
             
-
+            $teams2add = $this->teamModel->getTeams2Add($id_t);
             $teams = $this->teamModel->getAllTeamsFromTournament();
             require("view/OneTournament.php");
 
