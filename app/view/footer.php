@@ -16,5 +16,6 @@
 <div>
     <p>Maël RIBES</p>
     <p>William PACCOUD</p>
+    <p>Rachid FASKA</p>
 </div>
 </footer>
