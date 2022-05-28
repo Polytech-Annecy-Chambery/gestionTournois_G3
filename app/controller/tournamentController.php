@@ -30,12 +30,25 @@
         }
 
         function addTournament(){
+            $erreurAjout=FALSE;
+            $erreurAjout2=FALSE;
+            $erreurAjout3=FALSE;
             
             if($this->tournamentModel->existTournament()){
                 $erreurAjout=TRUE;
                 require("view/addTournament.php");
             }
-            else{
+            else if($_POST["nom_t"]==null || $_POST["capacite_t"]=="" || $_POST["sport_t"]==null){
+                $erreurAjout2=TRUE;
+                require("view/addTournament.php");
+
+            }
+            else if(strlen($_POST["nom_t"])>100 || strlen($_POST["sport_t"])>15){
+                $erreurAjout3=TRUE;
+                require("view/addTournament.php");
+
+            }
+            else if($erreurAjout=FALSE && $erreurAjout2=FALSE && $erreurAjout3=FALSE){
                 $this->tournamentModel->addTournament();
                 $tournament = $_POST["nom_t"];
                 $capacity = $_POST["capacite_t"];
@@ -45,9 +58,10 @@
                 $id_t = $data->fetch_array()["id_t"];
                 $teams2add = $this->teamModel->getTeams2Add($id_t);
                 $teams = $this->teamModel->getAllTeamsFromTournament();
-                
+                        
                 require("view/OneTournament.php");
             }
+
         }
 
         function displayOneTournament(){
@@ -63,6 +77,7 @@
         }
 
         function deleteTournament(){
+            
             $this->tournamentModel->deleteTournament();
             $tournaments = $this->tournamentModel->getAllTournament();
             require("view/allTournaments.php");

@@ -4,6 +4,7 @@
     text-align: center;
     display: table-cell;
     vertical-align: middle;
+    height: calc(100vh - 16vh);
 }
 
 .content{

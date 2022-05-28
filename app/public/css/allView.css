@@ -1,0 +1,91 @@
+h1{
+    padding-bottom: 6vh;
+}
+
+#list_tournois_content, #list_equipes_content{
+    padding: 2vh 1vw 3vh 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+.lesTournois, .lesEquipes{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 50%;
+    -webkit-box-shadow: -1px 8px 16px -5px rgba(0,0,0,0.40); 
+    box-shadow: -1px 8px 16px -5px rgba(0,0,0,0.40);
+
+    /* Si on veut mettre une scroll-bar */
+    /* height: 50vh;
+    overflow-y: scroll; */
+}
+
+.unTournoi, .unTournoiGrey, .uneEquipe, .uneEquipeGrey{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1vh 1vw;
+    flex-wrap: nowrap;
+}
+
+.nom{
+    overflow-x: auto;
+    width: 45%;
+}
+
+
+/* #form_tournament{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+
+
+.unTournoiGrey, .uneEquipeGrey{
+    background-color: var(--cream);
+}
+
+.lesTournois .form_contain, .lesEquipes .form_contain{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-end;
+    width: 55%;
+}
+
+.lesTournois .button, .lesEquipes .button{
+    padding: 0.3vh 0.5vw;
+    margin: 0 0.4vw;
+    background-color: var(--light-red);
+    border: none;
+    color: white;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 75px;
+    text-align: center;
+}
+
+.button_ajout{
+    font-size:1.1rem;
+    background-color : var(--light-red);
+    width:200px;
+    margin:5vh 0 2vh 0;
+    padding:2vh 0.5vw;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px ;
+    cursor: pointer;
+}
+
+
+@media (max-width: 600px){
+    .lesTournois, .lesEquipes{
+        width: 97%;
+    }
+}
+

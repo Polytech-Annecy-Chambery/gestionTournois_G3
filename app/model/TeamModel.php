@@ -76,6 +76,19 @@ class TeamModel extends Model {
         }
     }
 
+    // function existTeamInTournament(){
+    //     $conn = $this->dbConnect();
+    //     $result = mysqli_query($conn, "SELECT * FROM equipe,rencontre WHERE equipe.id_e='".$_POST["id_e"]."' AND (rencontre.id_e1='".$_POST["id_e"]."' OR rencontre.id_e2='".$_POST["id_e"]."') ");
+    //     $donnees=$result->fetch_assoc();
+        
+    //     if(is_null($donnees)==FALSE){
+    //         return TRUE;
+    //     }
+    //     else{
+    //         return FALSE;
+    //     }
+    // }
+
     function getAllTeamsFromTournament(){
         $conn = $this->dbConnect();
         $sql = "SELECT equipe.id_e,nom_e FROM equipe, tournois, appartient WHERE equipe.id_e=appartient.id_e AND appartient.id_t=tournois.id_t AND tournois.nom_t='".$_POST["nom_t"]."'";

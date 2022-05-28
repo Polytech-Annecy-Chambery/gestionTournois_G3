@@ -1,9 +1,9 @@
 footer{
     height: 8vh;
-    position: absolute;
+    /* position: absolute; */
     bottom:0;
     background-color: black;
-    width: 100vw;
+    /* width: 100%; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -23,5 +23,16 @@ footer p {
 @media (max-width: 500px){
     footer p {
         font-size: 0.7em;
+    }
+
+    footer div{
+        padding:0.5vh 0.1vw
+    }
+}
+
+@media (max-width: 250px){
+
+    .copy{
+        display: none;
     }
 }

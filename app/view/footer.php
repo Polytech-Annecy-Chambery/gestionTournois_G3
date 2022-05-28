@@ -7,7 +7,7 @@
     <p>Emma ORSET</p>
 </div>
 
-<div>
+<div class="copy">
     <p>&copy; Polytech Annecy-Chambéry</p>
     <p>2021 - 2022</p>
     <p>GestionTournois</p>
@@ -16,5 +16,6 @@
 <div>
     <p>Maël RIBES</p>
     <p>William PACCOUD</p>
+    <p>Rachid FASKA</p>
 </div>
 </footer>

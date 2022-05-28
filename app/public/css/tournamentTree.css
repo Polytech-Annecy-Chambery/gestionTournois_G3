@@ -1,8 +1,28 @@
 .tree{
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; */
+    overflow-x: auto;
+    width: 100vw;
     display: flex;
-    width: 80%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 2vh 0;
+    
 }
+
+.tree4, .tree8, .tree16{
+    justify-content: center;
+}
+
+
+
+.round {
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    border-bottom: 2px solid grey;
+}
+
 
 span.won{
     border: 2px solid #28a745;
@@ -35,17 +55,19 @@ span.won-team2{
 }
 
 .round{
-    width: 100%;
+    width: 300px;
 }
+
 
 .round-label{
     text-align: center;
     border-top: 2px solid grey;
     border-bottom: 2px solid grey;
-    padding: 15px;
+    padding: 15px 0;
     font-size: 1.1rem;
     color: rgb(102, 102, 102);
     margin-top: 0px;
+    width: 300px;
 }
 
 .round-matches{
@@ -63,7 +85,7 @@ span.won-team2{
 .match{
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 90%;
     margin-top: 0px;
     -webkit-box-shadow: -1px 6px 13px -5px rgba(0,0,0,0.19); 
 box-shadow: -1px 6px 13px -5px rgba(0,0,0,0.19);
@@ -100,6 +122,11 @@ box-shadow: -1px 6px 13px -5px rgba(0,0,0,0.19);
     background-color: white;
 }
 
+.nomEquipe{
+    overflow-x: auto;
+    width: 85%;
+}
+
 .team-score{
     /* padding-left: 15px;
     padding-right: 15px; */
@@ -108,7 +135,7 @@ box-shadow: -1px 6px 13px -5px rgba(0,0,0,0.19);
     align-items: center;
     height: 100%;
     border-left: 1px solid rgb(95, 95, 107);
-    width: 40px;
+    width: 15%;
 }
 
 .team-score input{
@@ -124,3 +151,50 @@ box-shadow: -1px 6px 13px -5px rgba(0,0,0,0.19);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+.attention{
+    text-align: center;
+    margin: 2vh 0.5vw;
+    font-weight: bold;
+    color: var(--light-red);
+}
+
+#form_tournament{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button_retour{
+    font-size:1.1rem;
+    background-color : var(--light-red);
+    width:200px;
+    margin:4vh 0 2vh 0;
+    padding:2vh 0.5vw;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px ;
+    cursor: pointer;
+}
+
+@media (max-width: 610px){
+    .tree4{
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 911px){
+    .tree8{
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 1216px){
+    .tree16{
+        justify-content: space-between;
+    }
+}
+

@@ -1,13 +1,32 @@
-<!-- /!\ La vue n'est jamais appelée ailleur que dans le controller correspondant /!\ -->
 <?php 
-    $title = 'Gestion Tournoi';  // Set the page Title
-    $style = "tournamentTree.css"; // Set the corresponding stylesheet
+    $title = 'Arbre du tournoi';
+    $style = "tournamentTree.css";
+    ob_start();
 ?>
 
-<?php ob_start(); // Initialize content start ?>
+<p class="attention">Attention à bien remplir les rencontres dans l'ordre (toutes les rencontres du 1er tour puis le tour suivant)</p>
 
-<div class="tree">
-    
+
+<div class="tree
+
+        <?php
+
+        if($tournament["capacite_t"] ==4){
+            echo " tree4";
+        }
+
+        else if($tournament["capacite_t"] ==8){
+            echo " tree8";
+        }
+
+        else if($tournament["capacite_t"] ==16){
+            echo " tree16";
+        }
+        ?>
+
+
+        ">
+
     <?php
     $rounds = 0;
     $round_labels = [];
@@ -25,7 +44,7 @@
         $match_labels = ["Rencontre", "Semie-Finale", "Finale"];
     }
         
-    else if($tournament["capacite_t"] == 12){
+    else if($tournament["capacite_t"] == 16){
         $rounds = 4;
         $round_labels = ["1er tour", "Quarts de Finale" ,"Semie-Finales", "Finale"];
         $match_labels = ["Rencontre", "Quart de Finale" ,"Semie-Finale", "Finale"];
@@ -62,9 +81,9 @@
 
     for($i = 0; $i < $rounds; $i++){
         ?>
-        <div class="round">
+        <div class="round" >
             <p class="round-label"><?= $round_labels[$i] ?></p>
-            <div class="round-matches" style="height:<?= $tournament["capacite_t"] * 70 ?>px">
+            <div class="round-matches" style="height:<?= $tournament["capacite_t"] * 80 ?>px">
             <?php
             foreach($roundsMatches_arr[$i] as $k => $match){
                 ?>
@@ -111,20 +130,20 @@
                     
                         </div>
                         <div class="match-teams">
-                            <div class='match-team<?= isset($match["nom_e1"]) ? "'>".$match["nom_e1"] : " no-team'>Gagnant " . $match_labels[$i - 1] . " " . (($k) * 2 + 1 ) ?>
+                            <div class='match-team<?= isset($match["nom_e1"]) ? "'><p class='nomEquipe'>".$match["nom_e1"] : " no-team'>Gagnant " . $match_labels[$i - 1] . " " . (($k) * 2 + 1 ) ?>
                             <?php
                                 if(isset($match["score_e1_r"])){
                                     ?>
-                                    <span class="team-score <?php if($match["score_e1_r"] > $match["score_e2_r"]) echo "won"; ?>"><input min="0" name="match['<?= $match["id_e1"] ?>'][]" type="number" width="10" value="<?= $match["score_e1_r"] ?>"></span>
+                                    </p><span class="team-score <?php if($match["score_e1_r"] > $match["score_e2_r"]) echo "won"; ?>"><input min="0" name="match['<?= $match["id_e1"] ?>'][]" type="number" width="10" value="<?= $match["score_e1_r"] ?>"></span>
                                     <?php
                                 }
                             ?>
                             </div>
-                            <div class='match-team<?= isset($match["nom_e2"]) ? "'>".$match["nom_e2"] : " no-team'>Gagnant " . $match_labels[$i - 1] . " " . (($k) * 2 + 2 ) ?>
+                            <div class='match-team<?= isset($match["nom_e2"]) ? "'><p class='nomEquipe'>".$match["nom_e2"] : " no-team'>Gagnant " . $match_labels[$i - 1] . " " . (($k) * 2 + 2 ) ?>
                             <?php
                                 if(isset($match["score_e2_r"])){
                                     ?>
-                                    <span class="team-score <?php if($match["score_e2_r"] > $match["score_e1_r"]) echo "won-team2"; ?>"> <input min="0" name="match['<?= $match["id_e2"] ?>'][]" type="number" width="10" value="<?= $match["score_e2_r"] ?>"></span>
+                                    </p><span class="team-score <?php if($match["score_e2_r"] > $match["score_e1_r"]) echo "won-team2"; ?>"> <input min="0" name="match['<?= $match["id_e2"] ?>'][]" type="number" width="10" value="<?= $match["score_e2_r"] ?>"></span>
                                     <?php
                                 }
                             ?>
@@ -141,19 +160,18 @@
     }
     
     ?>
+    
 </div>
 
-<p>Attention à bien remplir les rencontres dans l'ordre (toutes les rencontres du 1er tour puis le tour suivant)</p>
 
 <form id="form_tournament" method='POST' class="retour">
-						<input type="hidden" name="nom_t" value="<?php echo $tournament['nom_t']?>">	
-                        <input type="hidden" name="capacite_t" value="<?php echo $tournament['capacite_t']?>">	
-                        <input type="hidden" name="sport_t" value="<?php echo $tournament['sport_t']?>">													
-						<button type="submit" name="action" value="one_tournament">		
-								Retour
-						</button>
-					</form>
+	<input type="hidden" name="nom_t" value="<?php echo $tournament['nom_t']?>">	
+    <input type="hidden" name="capacite_t" value="<?php echo $tournament['capacite_t']?>">	
+    <input type="hidden" name="sport_t" value="<?php echo $tournament['sport_t']?>">													
+	<button class="button_retour" type="submit" name="action" value="one_tournament">Retour</button>
+</form>
 
-<?php $content = ob_get_clean(); // Get the html content into the content var ?>
-
-<?php require('template.php'); ?>
+<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>

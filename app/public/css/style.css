@@ -4,6 +4,7 @@
     --red : #831D1E;
     --light-red : #831D1E;
     --very-l-red : #A71C1C;
+    --cream : rgb(232, 232, 232);
 }
 
 /* @font-face {
@@ -14,26 +15,46 @@
 *{
     padding:0;
     margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html{
     font-size:15px;
 }
 
+body{
+    width: 100vw;
+}
+
+header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
 h1{
     font-size:2.2rem;
     text-transform: uppercase;
     font-weight: bold;
-    margin: 2vh 0 4vh 0;
+    padding: 2vh 0 4vh 0 ;
+    text-align: center;
+    overflow-x: auto;
 }
 
 h2{
-    font-size:1.3rem;
+    font-size:1.7rem;
     margin: 2vh 0 2vh 0;
+    text-align: center;
+}
+
+h3{
+    font-size:1.1rem;
+    margin: 2vh 0 2vh 0;
+    text-align: center;
 }
 
 .background{
-    width: 100vw;
+    /* width: 100vw; */
     top:8vh;
-    height: calc(100vh - 16vh);
+    min-height: calc(100vh - 16vh);
 }

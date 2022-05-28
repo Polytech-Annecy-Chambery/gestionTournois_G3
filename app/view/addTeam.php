@@ -1,51 +1,49 @@
-<!-- Page de Bienvenue
+<?php 
+	$title = 'Ajouter une équipe';
+	$style = "add.css";
+	ob_start();
+?>
 
-Liste des tournois (différente couleur s'ils sont complet ou incomplet )
+<div id='ajoutEquipe'>
+	<h1>Ajouter une Equipe</h1>
 
-Bouton pour voir toutes les équipes
+	<form class="form_content" method='post' >
 
-Formulaire ajouter un tournois -->
-
-<!-- /!\ La vue n'est jamais appelée ailleur que dans le controller correspondant /!\ -->
-
-<?php $title = 'Gestion Tournois';  // Set the page Title?>
-
-<?php ob_start(); // Initialize content start ?>
-
-<content>
-    <div id='ajoutTournois'>
-			<h2>Ajouter une Equipe :</h2>
-
-			<form method='post' >
-
-				<div>
-					<div>
-						<label for="nom_e">Nom :</label>
-					</div>
-					<div>
-						<input id="nom_e" type="text" name="nom_e" placeholder="Nom de l'équipe" title="Entrez un nom de tournoi. Champ obligatoire" required>
-					</div>
-				</div>
+		<div>
+			<p>Nom de l'Equipe</p>
+			<input id="nom_e" type="text" name="nom_e" placeholder="Nom de l'équipe" title="Entrez un nom de tournoi. Champ obligatoire" maxlength="50" required>
+		</div>
 				
-				<div>
-					<button  type="submit" name="action" value="addTeam">Ajouter une équipe</button>
-				</div>
-			</form>
+		<div>
+			<button class="button_ajout" type="submit" name="action" value="addTeam">Ajouter</button>
+		</div>
 
+	</form>
 
-            <?php 
-				if(isset($erreurAjout)){
-					if($erreurAjout){
-						echo "Une équipe avec le même nom existe déjà";
-					}
+	<p class='error'>
+		<?php
+		if(isset($erreurAjout) && isset($erreurAjout2) && isset($erreurAjout3)){ 
+			if($erreurAjout == TRUE || $erreurAjout2==TRUE || $erreurAjout3==TRUE){
+				echo "Impossible. ";
+
+				if($erreurAjout == TRUE){
+					echo "Un tournoi du même nom existe déjà.";
 				}
-			?>
+				if($erreurAjout2 == TRUE){
+					echo "Le champs n'a pas été rempli.";
+				}
+				if($erreurAjout3 == TRUE){
+					echo "Le champs contient trop de caractères.";
+				}
+			}
+		}
+		?>
+	</p>
+            
 
-	</div>
+</div>
 
-
-
-</content>
-<?php $content = ob_get_clean(); // Get the html content into the content var ?>
-
-<?php require('template.php'); ?>
+<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>

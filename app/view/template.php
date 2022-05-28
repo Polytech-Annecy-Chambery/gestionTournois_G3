@@ -13,7 +13,10 @@
     <title> <?= $title ?> </title>
 </head>
 <body>
-    <?php require("header.php") ?>
+    <header>
+        <?php require("header.php") ?>
+    </header>
+    
 
     <div class = "background">
     <?= $content ?>

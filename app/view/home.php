@@ -1,15 +1,12 @@
 <?php 
-$title = 'Gestion Tournois';  // Set the page Title
-$style = "home.css"; // Set the corresponding stylesheet
-
-
+$title = 'Accueil';
+$style = "home.css";
+ob_start();
 ?>
-
-<?php ob_start(); // Initialize content start ?>
 
 <div class="content">
 <h1>LE MEILLEUR GESTIONNAIRE DE COMPÉTITIONS SPORTIVES</h1>
-<h2>Organisez les meilleurs compétitions avec notre gestionnaire de ligues et tournois. Notre logiciel en ligne d'organisation de compétitions vous permet de créer un tournoi en quelques secondes.</h2>
+<h3>Organisez les meilleurs compétitions avec notre gestionnaire de ligues et tournois. Notre logiciel en ligne d'organisation de compétitions vous permet de créer un tournoi en quelques secondes.</h3>
 	
 <div class="button_container">
 	<form method="post">
@@ -26,6 +23,7 @@ $style = "home.css"; // Set the corresponding stylesheet
 	</div>
 </div>
 
-<?php $content = ob_get_clean(); // Get the html content into the content var ?>
-
-<?php require('template.php'); ?>
+<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>

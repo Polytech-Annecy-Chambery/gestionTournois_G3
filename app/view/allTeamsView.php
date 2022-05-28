@@ -1,58 +1,68 @@
-<!-- Voir toutes les équipes
-Voir le nombre de joueurs par équipe
-Supprimer des équipes d'un simple click
-Quand on clique sur l'équipe -> uneEquipe.php -->
-
-
-
-<!-- /!\ La vue n'est jamais appelée ailleur que dans le controller correspondant /!\ -->
-
 <?php
-$title = '';  // Set the page Title
-$style = "example.css"; // Set the corresponding stylesheet
+$title = 'Voir toutes les équipes';
+$style = "allView.css";
+ob_start();
 ?>
 
-<?php ob_start(); // Initialize content start ?>
+<div id="list_equipes_content">
+    <h1 class = "title">Équipes inscrites</h1>
 
-<!-- Content goes here -->
-
-<h2>Équipes inscrites : </h2>
-
-<!-- Afficher l'exemple $example définie dans le controller -->
-<p ><ul><?php
-        while ($row = mysqli_fetch_assoc($teams)) { 
-            $id_e = $row['id_e'];
-            $nom_e = $row['nom_e'];
-        ?>
-        <li>
-        <form method="post">
-            <input type="hidden" name="nom_e" value="<?php echo $nom_e?>">	
-			<?php echo $nom_e ?>													
-			<button type="submit" name="action" value="one_team">		
-				Détails
-			</button>
-        </form>
-
-        <form id="form_team_delete" method='POST'>
-            <input type="hidden" name="nom_e"	 value="<?php echo $nom_e ?>">	
-            <input type="hidden" name="id_e"	 value="<?php echo $id_e ?>">	
-
-            <button type="submit" name="action" value="delete_team">		
-                    Supprimer
-            </button>
-        </form>
-
-
-        </li>
+    <div class = "lesEquipes">
         <?php
-        }
+            $compteur = 0;
+            while ($row = mysqli_fetch_assoc($teams)) { 
+                $id_e = $row['id_e'];
+                $nom_e = $row['nom_e'];
         ?>
-        </ul>
-</p>
+
+        <div <?php echo ($compteur % 2==0 ? 'class=uneEquipe' : 'class=uneEquipeGrey'); ?>>
+            
+            <div class="nom"><?php echo $nom_e ?></div>
+
+            <div class="form_contain">
+                <form id="form_team" method="post">
+                    <input type="hidden" name="nom_e" value="<?php echo $nom_e?>">														
+                    <button class="button" type="submit" name="action" value="one_team">Détails</button>
+                </form>
+
+                <form id="form_team_delete" method='POST'>
+                    <input type="hidden" name="nom_e" value="<?php echo $nom_e ?>">	
+                    <input type="hidden" name="id_e" value="<?php echo $id_e ?>">	
+                    <button class="button" type="submit" name="action" value="delete_team">Supprimer</button>
+                </form>
+            </div>
+            
+            
+
+        </div>
+
+        <?php
+        $compteur = $compteur + 1;}
+        ?>
 
 
-<!-- End of content -->
+    <p>
+		<?php 
+			// if(isset($erreurDelete)){
+			// 	if($erreurDelete){
+			// 		echo "Impossible. Cette équipe est déjà dans un tournoi.";
+			// 	}
+			// }
+		?>
+	</p>
+            
+    </div>
 
-<?php $content = ob_get_clean(); // Get the html content into the content var ?>
+    <form method="post">
+		<button class="button_ajout" type="submit" name="action" value="page_addTeam">
+			Ajouter une équipe
+		</button>
+	</form>
 
-<?php require('template.php'); ?>
+
+</div>
+
+<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>

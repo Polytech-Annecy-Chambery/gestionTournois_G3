@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="public\css\header.css">
 
-<header>
+
 <div class = "div_menu">
     <input id="menu-toggle" type="checkbox" />
     <label class='menu-button-container' for="menu-toggle">
@@ -24,5 +24,3 @@
               </li>
         </ul>
 </div>
-
-</header>

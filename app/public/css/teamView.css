@@ -1,19 +1,84 @@
-table{
-    width: 50%;
+#equipe_content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100vw;
 }
 
-td {
+#equipe_content > div{
+    padding: 0 1vw 3vh 1vw;
+    width: 45%;
+}
+
+#equipe_content table{
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%; /* must have this set */
+    -webkit-box-shadow: -1px 8px 16px -5px rgba(0,0,0,0.40); 
+    box-shadow: -1px 8px 16px -5px rgba(0,0,0,0.40);
+}
+
+#equipe_content td, #equipe_content th{
+    border: 2px solid var(--dark-red);
     text-align: center;
-    border: 1px solid #333;
+    padding: 0.5vh 0.2vw;
+    
 }
 
-.tab_joueurs td:last-child {
-    width: 0;
-    padding: 0;
-    border: none;
+.matchs tbody td, .matchs tbody th{
+    overflow: auto;
+    width: 25%;
 }
 
-thead {
-    background-color: brown;
+.joueurs tbody td, .joueurs tbody th{
+    width: 33%;
+    overflow: auto;
+}
+
+#equipe_content thead {
+    background-color: var(--light-red);
     color: #fff;
+}
+
+#equipe_content input{
+    text-align: center;
+    border:none;
+    width: 100%;
+}
+
+.table_button{
+    padding: 0.3vh 0.5vw;
+    margin: 0;
+    background-color: var(--light-red);
+    border: none;
+    color: white;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 90%;
+    text-align: center;
+}
+
+
+.joueurs p{
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+    color: var(--dark-red);
+    font-weight: bold;
+    text-align: center;
+}
+
+.error{
+    color:var(--light-red);
+
+}
+
+
+@media (max-width: 600px){
+    #equipe_content > div{
+        padding: 0 1vw 3vh 1vw;
+        width: 98%;
+    }
+
 }
