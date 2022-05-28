@@ -1,0 +1,210 @@
+h1{
+    padding-bottom: 6vh;
+    padding-top: 4vh;
+}
+
+#unTournoi{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#ajoutEquipeAuTournoi{
+    padding: 2vh 0 3vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 45%;
+
+}
+
+.button_ajout, .button_sup{
+    font-size:1.1rem;
+    background-color : var(--light-red);
+    width:200px;
+    margin:4vh 0 2vh 0;
+    padding:2vh 0.5vw;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px ;
+    cursor: pointer;
+}
+
+#ajoutEquipeAuTournoi input{
+    text-align: center;
+    margin: 2vh 0;
+    padding: 1vh 0.5vw;
+    width: 400px;
+    border: none;
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.40);
+    font-size: 1.1em;
+
+}
+
+#ajoutEquipeAuTournoi p{
+    font-size:1.2em;
+    margin-top: 2vh;
+    font-weight: bold;
+}
+
+#ajoutEquipeAuTournoi select{
+    text-align: center;
+    margin: 2vh 0;
+    padding: 1vh 0.5vw;
+    width: 300px;
+    border: none;
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.40);
+
+    font-size: 1.1em;
+}
+
+.attendu{
+    margin-bottom: 2vh;
+}
+
+.error{
+    color:var(--light-red);
+}
+
+
+
+
+
+
+
+
+#list_equipesT_content{
+    padding: 2vh 0 3vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45% ;
+
+}
+
+
+.lesEquipes{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    -webkit-box-shadow: -1px 8px 16px -5px rgba(0,0,0,0.40); 
+    box-shadow: -1px 8px 16px -5px rgba(0,0,0,0.40);
+
+    /* Si on veut mettre une scroll-bar */
+    /* height: 50vh;
+    overflow-y: scroll; */
+}
+
+.uneEquipe, .uneEquipeGrey{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1vh 1vw;
+    flex-wrap: nowrap;
+}
+
+
+.uneEquipeGrey{
+    background-color: var(--cream);
+}
+
+.nom{
+    overflow-x: auto;
+    width: 45%;
+}
+
+.lesEquipes .form_contain{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-end;
+    width: 55%;
+}
+
+.lesEquipes .button{
+    padding: 0.3vh 0.5vw;
+    margin: 0 0.4vw;
+    background-color: var(--light-red);
+    border: none;
+    color: white;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 75px;
+    text-align: center;
+}
+
+#deleteTournoi{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+
+
+
+@media (max-width: 410px){
+    #ajoutEquipeAuTournoi input{
+        width: 300px;
+    }
+
+    .button_ajout, .button_sup{
+        width:170px;
+    }
+
+    #ajoutEquipeAuTournoi select{
+        width: 250px;
+    }
+    
+}
+
+@media (max-width: 350px){
+    #ajoutEquipeAuTournoi input{
+        width: 150px;
+    }
+
+    .button_ajout, .button_sup{
+        width:150px;
+    }
+
+    #ajoutEquipeAuTournoi select{
+        width: 150px;
+    }
+}
+
+
+
+
+
+@media (max-width: 600px){
+    .lesEquipes{
+        width: 97%;
+    }
+}
+
+@media (max-width: 700px){
+    #unTournoi{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: center;
+    }
+
+    #ajoutEquipeAuTournoi{
+        padding: 2vh 0 5vh 0;
+        width: 95%;
+    
+    }
+
+    #list_equipesT_content{
+        padding: 2vh 0 3vh 0;
+        width: 95% ;
+    
+    }
+}

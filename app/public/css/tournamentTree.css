@@ -1,0 +1,200 @@
+.tree{
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; */
+    overflow-x: auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 2vh 0;
+    
+}
+
+.tree4, .tree8, .tree16{
+    justify-content: center;
+}
+
+
+
+.round {
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    border-bottom: 2px solid grey;
+}
+
+
+span.won{
+    border: 2px solid #28a745;
+}
+
+span.won-team2{
+    border: 2px solid #28a745;
+    border-bottom-right-radius: 5px;
+}
+
+.no-team{
+    color: rgba(0, 0, 0, 0.404);
+}
+
+.tree button{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #28a745;
+    border-style: none;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.tree button:hover{
+
+    background-color: #1d9439;
+}
+
+.round{
+    width: 300px;
+}
+
+
+.round-label{
+    text-align: center;
+    border-top: 2px solid grey;
+    border-bottom: 2px solid grey;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    color: rgb(102, 102, 102);
+    margin-top: 0px;
+    width: 300px;
+}
+
+.round-matches{
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.round:nth-child(2n){
+    background-color: rgb(227, 227, 227);
+}
+
+.match{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 0px;
+    -webkit-box-shadow: -1px 6px 13px -5px rgba(0,0,0,0.19); 
+box-shadow: -1px 6px 13px -5px rgba(0,0,0,0.19);
+}
+
+.match-label{
+    justify-content: space-between;
+    display: flex;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 10px;
+    color: white;
+    background-color: rgb(95, 95, 107);
+    font-weight: 500;
+}
+
+.match-teams{
+    color: rgb(84, 83, 83);
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(95, 95, 107);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.match-team{
+    height: 40px;
+    padding-left: 10px;
+    flex: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.nomEquipe{
+    overflow-x: auto;
+    width: 85%;
+}
+
+.team-score{
+    /* padding-left: 15px;
+    padding-right: 15px; */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-left: 1px solid rgb(95, 95, 107);
+    width: 15%;
+}
+
+.team-score input{
+    width: 150%;
+    border: none;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+.match-teams .match-team:nth-child(2n){
+    /* border-top: 1px solid rgb(95, 95, 107); */
+    background-color: rgb(232, 232, 232);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.attention{
+    text-align: center;
+    margin: 2vh 0.5vw;
+    font-weight: bold;
+    color: var(--light-red);
+}
+
+#form_tournament{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button_retour{
+    font-size:1.1rem;
+    background-color : var(--light-red);
+    width:200px;
+    margin:4vh 0 2vh 0;
+    padding:2vh 0.5vw;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px ;
+    cursor: pointer;
+}
+
+@media (max-width: 610px){
+    .tree4{
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 911px){
+    .tree8{
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 1216px){
+    .tree16{
+        justify-content: space-between;
+    }
+}
+
