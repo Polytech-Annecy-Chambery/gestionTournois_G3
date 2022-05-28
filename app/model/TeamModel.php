@@ -20,14 +20,14 @@ class TeamModel extends Model {
     }
 
     function addPlayer($id_t){
-        $sql = "insert into joueur(nom_j, prenom_j, id_e) values('".$_POST["nom_j"]."', '".$_POST["prenom_j"]."', ".$id_t.")";
+        $sql = "insert into joueur(nom_j, prenom_j, id_e) values(\"".$_POST["nom_j"]."\", \"".$_POST["prenom_j"]."\", ".$id_t.")";
         $result = mysqli_query($this->dbConnect(), $sql);
         return $result;
     }
 
     function existPlayer(){
         $conn = $this->dbConnect();
-        $result = mysqli_query($conn, "SELECT * FROM joueur WHERE nom_j='".$_POST["nom_j"]."'and prenom_j='".$_POST["prenom_j"]."'");
+        $result = mysqli_query($conn, "SELECT * FROM joueur WHERE nom_j=\"".$_POST["nom_j"]."\" and prenom_j=\"".$_POST["prenom_j"]."\"");
         $donnees=$result->fetch_assoc();
         
         if(is_null($donnees)==FALSE){
@@ -39,14 +39,14 @@ class TeamModel extends Model {
     }
 
     function removePlayer(){
-        $sql = "delete from joueur where nom_j = '".$_POST["nom_j"]."' and prenom_j = '".$_POST["prenom_j"]."'";
+        $sql = "delete from joueur where nom_j = \"".$_POST["nom_j"]."\" and prenom_j =\"".$_POST["prenom_j"]."\"";
         $result = mysqli_query($this->dbConnect(), $sql);
         return $result;
     }
 
     function getTeamID( $nom_e ){
         $conn = $this->dbConnect();
-        $sql = "SELECT id_e,nom_e FROM equipe WHERE nom_e='".$nom_e."'";
+        $sql = "SELECT id_e,nom_e FROM equipe WHERE nom_e=\"".$nom_e."\"";
         $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
         return $result;
     }
@@ -58,14 +58,14 @@ class TeamModel extends Model {
     }
 
     function addTeam(){
-        $sql = "insert into equipe(nom_e) values('".$_POST["nom_e"]."')";
+        $sql = "insert into equipe(nom_e) values(\"".$_POST["nom_e"]."\")";
         $result = mysqli_query($this->dbConnect(), $sql);
         return $result;
     }
 
     function existTeam(){
         $conn = $this->dbConnect();
-        $result = mysqli_query($conn, "SELECT * FROM equipe WHERE equipe.nom_e='".$_POST["nom_e"]."'");
+        $result = mysqli_query($conn, "SELECT * FROM equipe WHERE equipe.nom_e=\"".$_POST["nom_e"]."\"");
         $donnees=$result->fetch_assoc();
         
         if(is_null($donnees)==FALSE){
@@ -91,21 +91,21 @@ class TeamModel extends Model {
 
     function getAllTeamsFromTournament(){
         $conn = $this->dbConnect();
-        $sql = "SELECT equipe.id_e,nom_e FROM equipe, tournois, appartient WHERE equipe.id_e=appartient.id_e AND appartient.id_t=tournois.id_t AND tournois.nom_t='".$_POST["nom_t"]."'";
+        $sql = "SELECT equipe.id_e,nom_e FROM equipe, tournois, appartient WHERE equipe.id_e=appartient.id_e AND appartient.id_t=tournois.id_t AND tournois.nom_t=\"".$_POST["nom_t"]."\"";
         $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
         return $result;
     }
 
     function countAllTeamsFromTournament(){
         $conn = $this->dbConnect();
-        $sql = "SELECT count(*) FROM equipe, tournois, appartient WHERE equipe.id_e=appartient.id_e AND appartient.id_t=tournois.id_t AND tournois.nom_t='".$_POST["nom_t"]."'";
+        $sql = "SELECT count(*) FROM equipe, tournois, appartient WHERE equipe.id_e=appartient.id_e AND appartient.id_t=tournois.id_t AND tournois.nom_t=\"".$_POST["nom_t"]."\"";
         $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
         return $result;
     }
 
     function deleteTeam(){
         $conn = $this->dbConnect();
-        $results = mysqli_query($conn, "DELETE FROM equipe WHERE equipe.nom_e='".$_POST["nom_e"]."'");
+        $results = mysqli_query($conn, "DELETE FROM equipe WHERE equipe.nom_e=\"".$_POST["nom_e"]."\"");
         return $results;
     }
 
@@ -117,7 +117,7 @@ class TeamModel extends Model {
 
     function addTeam2Tournament($id_t){
         $conn = $this->dbConnect();
-        $results = mysqli_query($conn, "INSERT INTO appartient (id_e, id_t) VALUES ('".$_POST["add-team"]."', '".$id_t."')");
+        $results = mysqli_query($conn, "INSERT INTO appartient (id_e, id_t) VALUES (\"".$_POST["add-team"]."\", \"".$id_t."\")");
         return $results;
     }
 
@@ -129,14 +129,14 @@ class TeamModel extends Model {
 
     function getTeamMatches(){
         $conn = $this->dbConnect();
-        $sql = "SELECT * FROM rencontre r JOIN equipe e ON r.id_e1 = e.id_e OR r.id_e2 = e.id_e WHERE e.nom_e = '".$_POST["nom_e"]."'";
+        $sql = "SELECT * FROM rencontre r JOIN equipe e ON r.id_e1 = e.id_e OR r.id_e2 = e.id_e WHERE e.nom_e = \"".$_POST["nom_e"]."\"";
         $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
         return $result;
     }
 
     function getTeamPlayers(){
         $conn = $this->dbConnect();
-        $sql = "SELECT * FROM joueur j JOIN equipe e ON j.id_e = e.id_e WHERE e.nom_e = '".$_POST["nom_e"]."'";
+        $sql = "SELECT * FROM joueur j JOIN equipe e ON j.id_e = e.id_e WHERE e.nom_e = \"".$_POST["nom_e"]."\"";
         $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
         return $result;
     }
