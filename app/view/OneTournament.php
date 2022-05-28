@@ -1,8 +1,15 @@
+<!DOCTYPE HTML>
+<html>
 
-<?php $content = ob_start();?>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+
+<?php $content = ob_start(); // Get the html content into the content var ?>
+
 
 <content>
-
     <div id="Tournoi">
 		<h2>Tournoi <?php echo $tournament ?></h2>
         Tournoi de : <?php echo $sport ?>
@@ -51,7 +58,11 @@
             ?>
 
             </ul>
-            <form method="POST">
+
+
+            <?php if( $i < (int)$capacity) { ?>
+
+                <form method="POST">
                 <input type="hidden" name="nom_t"	 value="<?php echo $tournament ?>">	
                 <input type="hidden" name="capacite_t"	 value="<?php echo $capacity ?>">
                 <input type="hidden" name="sport_t"	 value="<?php echo $sport ?>">
@@ -69,7 +80,12 @@
                     <button type="submit" name="action" value="addTeam2Tournament">		
                         Valider
                     </button>
-            </form>
+                </form>
+
+        <?php } ?>
+
+
+
             <?php
 
 
@@ -78,9 +94,11 @@
             <form method="POST">
                 <input type="hidden" name="nom_t"	 value="<?php echo $tournament ?>">	
                 <button type="submit" name="action" value="tournamentTree">		
-                    LANCER LE TOURNOI
+                    LANCER/AFFICHER LE TOURNOI
                 </button>
             </form>
+
+            
 
             <?php
             
@@ -95,9 +113,11 @@
         ?>
 
     </div>
+
+
 	</div>  
+
 </content>
 
 <?php $content = ob_get_clean(); // Get the html content into the content var ?>
-<?php require("view/template.php"); ?>
-
+<?php require("template.php"); ?>

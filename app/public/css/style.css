@@ -1,0 +1,39 @@
+/* Style commun à toutes les pages */
+:root{
+    --dark-red : #6D1212;
+    --red : #831D1E;
+    --light-red : #831D1E;
+    --very-l-red : #A71C1C;
+}
+
+/* @font-face {
+    font-family: "Sporter";
+    src: url("../font/Sporter.ttf");
+} */
+
+*{
+    padding:0;
+    margin:0;
+}
+
+html{
+    font-size:15px;
+}
+
+h1{
+    font-size:2.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 2vh 0 4vh 0;
+}
+
+h2{
+    font-size:1.3rem;
+    margin: 2vh 0 2vh 0;
+}
+
+.background{
+    width: 100vw;
+    top:8vh;
+    height: calc(100vh - 16vh);
+}

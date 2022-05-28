@@ -67,10 +67,6 @@
             case "one_team":
                 $teamController->displayTeamInfos();
                 break;
-            
-            case "page_addTeam":
-                $teamController->displayAddTeam();
-                break;
 
             case "delete_tournament":
                 $tournamentController->deleteTournament();
@@ -98,6 +94,14 @@
                 if(isset($_POST["id_r"])){
                     $matchController->updateAndCreateMatch($_POST["id_t"],$_POST["id_r"]);
                 }
+                break;
+
+            case "addPlayer":
+                $teamController->addPlayer();
+                break;
+
+            case "deletePlayer":
+                $teamController->deletePlayer();
                 break;
         }
 

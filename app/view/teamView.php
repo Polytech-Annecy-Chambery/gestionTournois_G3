@@ -1,15 +1,9 @@
 <!-- Voir les joueurs de l'équipe
-
 Ajouter un joueur
-
 Modifier un joueur
-
 supprimer un joueur
-
 Modifier le nom de l'équipe
-
 Supprimer l'équipe
-
 Et truc en plus : voir les match joués  -->
 
 <?php 
@@ -55,7 +49,7 @@ $style = 'teamView.css';
         </table>
         </br>
         </br>
-        <table>
+        <table class ="tab_joueurs">
             <thead>
                 <tr>
                     <th colspan="2">Joueurs de l'équipe</th>
@@ -71,11 +65,48 @@ $style = 'teamView.css';
                     echo "<tr>";
                     echo "<td>".$row["nom_j"]."</td>";
                     echo "<td>".$row["prenom_j"]."</td>";
-                    echo "</tr>";
+                    echo "<form method=\"POST\">
+                        <input type=\"hidden\" name=\"nom_j\" value=\"".$row['nom_j']."\">	
+                        <input type=\"hidden\" name=\"prenom_j\" value=\"".$row['prenom_j']."\">
+                        <input type=\"hidden\" name=\"nom_e\" value=\"".$team."\">
+                    ";
+                    echo "<td> <button  type=\"submit\" name=\"action\" value=\"deletePlayer\">Supprimer</button> </td>";
+                    echo "</form></tr>";
+                    
                 }
                 ?>
             </tbody>
         </table>
+        </br>
+        <h2>Ajouter un joueur à l'équipe:</h2>
+
+            <form method='post' >
+	
+                <div>
+                    <div>
+                        <label for="nom_j">Nom du joueur:</label>
+                        <input id="nom_j" type="text" name="nom_j" placeholder="Entrez un nom" >
+                    </div>
+                    <div>
+                        <label for="prenom_j">Prénom du joueur:</label>
+                        <input id="prenom_j" type="text" name="prenom_j" placeholder="Entrez un prénom" >
+                    </div>
+                </div>
+                <input type="hidden" name="nom_e" value="<?php echo $team ?>">
+		</br>
+                <div>
+                    <button  type="submit" name="action" value="addPlayer">Ajouter le joueur</button>
+                </div>
+            </form>
+	    </br>
+            <?php 
+		if(isset($erreurAjout)){
+			if($erreurAjout){
+				echo "Attention! Ce joueur est déjà présent dans une équipe.";
+			}
+		}
+	    ?>
+
     </div>
 
 
@@ -84,3 +115,4 @@ $style = 'teamView.css';
 <?php $content = ob_get_clean(); // Get the html content into the content var ?>
 <?php require("view/template.php"); ?>
 
+        
