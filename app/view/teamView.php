@@ -87,8 +87,8 @@ $content = ob_start();
                         echo "<td>".$row["nom_j"]."</td>";
                         echo "<td>".$row["prenom_j"]."</td>";
                         echo "<form method=\"POST\">
-                            <input type=\"hidden\" name=\"nom_j\" value=\"".$row['nom_j']."\">	
-                            <input type=\"hidden\" name=\"prenom_j\" value=\"".$row['prenom_j']."\">
+                            <input type=\"hidden\" name=\"nom_j\" value=\"".$row["nom_j"]."\">	
+                            <input type=\"hidden\" name=\"prenom_j\" value=\"".$row["prenom_j"]."\">
                             <input type=\"hidden\" name=\"nom_e\" value=\"".$team."\">
                         ";
                         echo "<td> <button class='table_button' type=\"submit\" name=\"action\" value=\"deletePlayer\">Supprimer</button> </td>";
