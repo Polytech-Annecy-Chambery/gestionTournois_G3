@@ -48,7 +48,7 @@
                 require("view/addTournament.php");
 
             }
-            else if($erreurAjout=FALSE && $erreurAjout2=FALSE && $erreurAjout3=FALSE){
+            else{
                 $this->tournamentModel->addTournament();
                 $tournament = $_POST["nom_t"];
                 $capacity = $_POST["capacite_t"];

@@ -49,7 +49,7 @@ class TeamController
             require("view/addTeam.php");
 
         }
-        else if($erreurAjout=FALSE && $erreurAjout2=FALSE && $erreurAjout3=FALSE){
+        else{
             $this->teamModel->addTeam();
             $teams = $this->teamModel->getAllTeams();
             require("view/allTeamsView.php");
@@ -110,7 +110,7 @@ class TeamController
             
 
         }
-        else if($erreurAjout=FALSE && $erreurAjout2=FALSE && $erreurAjout3=FALSE){
+        else{
             $this->teamModel->addPlayer($id_t);
            
         }

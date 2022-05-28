@@ -178,15 +178,15 @@ ALTER TABLE `tournois`
 -- Contraintes pour la table `joueur`
 --
 ALTER TABLE `joueur`
-  ADD CONSTRAINT `joueur_ibfk_1` FOREIGN KEY (`id_e`) REFERENCES `equipe` (`id_e`) ON DELETE CASCADE;
+  ADD CONSTRAINT `joueur_ibfk_1` FOREIGN KEY (`id_e`) REFERENCES `equipe` (`id_e`);
 
 --
 -- Contraintes pour la table `rencontre`
 --
 ALTER TABLE `rencontre`
-  ADD CONSTRAINT `rencontre_ibfk_1` FOREIGN KEY (`id_e1`) REFERENCES `equipe` (`id_e`) ON DELETE CASCADE,
-  ADD CONSTRAINT `rencontre_ibfk_2` FOREIGN KEY (`id_e2`) REFERENCES `equipe` (`id_e`) ON DELETE CASCADE,
-  ADD CONSTRAINT `rencontre_ibfk_3` FOREIGN KEY (`id_t`) REFERENCES `tournois` (`id_t`) ON DELETE CASCADE;
+  ADD CONSTRAINT `rencontre_ibfk_1` FOREIGN KEY (`id_e1`) REFERENCES `equipe` (`id_e`),
+  ADD CONSTRAINT `rencontre_ibfk_2` FOREIGN KEY (`id_e2`) REFERENCES `equipe` (`id_e`),
+  ADD CONSTRAINT `rencontre_ibfk_3` FOREIGN KEY (`id_t`) REFERENCES `tournois` (`id_t`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
