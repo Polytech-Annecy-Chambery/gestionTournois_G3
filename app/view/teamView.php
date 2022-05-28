@@ -17,9 +17,9 @@ $content = ob_start();
                         <th colspan="4">Matchs joués</th>
                     </tr>
                     <tr>
-                        <th>Equipe</th>
+                        <th>Equipe A</th>
                         <th>Score</th>
-                        <th>Equipe adverse</th>
+                        <th>Equipe B</th>
                         <th>Tournoi</th>
                     </tr>
                 </thead>

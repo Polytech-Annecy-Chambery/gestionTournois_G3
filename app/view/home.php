@@ -6,7 +6,7 @@ ob_start();
 
 <div class="content">
 <h1>LE MEILLEUR GESTIONNAIRE DE COMPÉTITIONS SPORTIVES</h1>
-<h3>Organisez les meilleurs compétitions avec notre gestionnaire de ligues et tournois. Notre logiciel en ligne d'organisation de compétitions vous permet de créer un tournoi en quelques secondes.</h3>
+<h3>Organisez les meilleures compétitions avec notre gestionnaire de tournois. Notre logiciel en ligne d'organisation de compétitions vous permet de créer un tournoi en quelques minutes.</h3>
 	
 <div class="button_container">
 	<form method="post">
