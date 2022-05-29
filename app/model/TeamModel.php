@@ -12,6 +12,13 @@ class TeamModel extends Model {
         return $result;
     }
 
+    function getTournament( $tournamentID ){
+        $conn = $this->dbConnect();
+        $sql = "SELECT nom_t FROM tournois WHERE id_t=$tournamentID";
+        $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
+        return $result;
+    }
+
     function getAllTeams(){
         $conn = $this->dbConnect();
         $sql = "SELECT id_e,nom_e FROM equipe";

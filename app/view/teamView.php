@@ -33,11 +33,14 @@ $content = ob_start();
                         $away_team = new TeamModel();
                         $a_name = $away_team->getTeam($row["id_e2"])->fetch_array();
                         $a_name = $a_name[1];
+                        $name_tourn = new TeamModel();
+                        $t_name = $name_tourn->getTournament($row["id_t"])->fetch_array();
+                        $t_name = $t_name[0];
                         echo "<tr>";
                             echo "<td>".$h_name."</td>";
                             echo "<td>".$row["score_e1_r"]." - ".$row["score_e2_r"]."</td>";
                             echo "<td>".$a_name."</td>";
-                            echo "<td>Nom du tournoisbbbbbbbbbbbb</td>";
+                            echo "<td>".$t_name."</td>";
                         echo "</tr>";
                     }
                     ?>
