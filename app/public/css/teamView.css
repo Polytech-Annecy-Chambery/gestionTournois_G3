@@ -60,6 +60,21 @@
     text-align: center;
 }
 
+.table_button:hover{
+    background-color: var(--dark-red);
+}
+
+button.btn_suppr{
+    border: 1px solid var(--dark-red);
+    color: var(--dark-red);
+    background-color: transparent;
+}
+
+button.btn_suppr:hover{
+    border: 1px solid var(--dark-red);
+    color: white;
+    background-color: var(--dark-red);
+}
 
 .joueurs p{
     margin-top: 2vh;

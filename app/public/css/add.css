@@ -17,8 +17,13 @@
     color: white;
     text-align: center;
     text-decoration: none;
-    border-radius: 10px ;
+    border-radius: 5px ;
     cursor: pointer;
+    transition: all 0.3s;
+}
+
+.button_ajout:hover{
+    background-color : var(--dark-red);
 }
 
 #ajoutTournoi input, #ajoutEquipe input{
@@ -27,7 +32,9 @@
     padding: 1vh 0.5vw;
     width: 400px;
     border: none;
-    box-shadow: 3px 3px 7px rgba(0,0,0,0.40);
+    border: 1px solid grey;
+    border-radius: 5px;
+    /* box-shadow: 3px 3px 7px rgba(0,0,0,0.40); */
     font-size: 1.1em;
 
 }
@@ -43,8 +50,9 @@
     margin: 2vh 0;
     padding: 1vh 0.5vw;
     width: 300px;
-    border: none;
-    box-shadow: 3px 3px 7px rgba(0,0,0,0.40);
+    border: 1px solid grey;
+    border-radius: 5px;
+    /* box-shadow: 3px 3px 7px rgba(0,0,0,0.40); */
     font-size: 1.1em;
 }
 

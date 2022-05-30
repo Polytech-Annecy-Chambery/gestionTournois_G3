@@ -14,7 +14,7 @@ $i = $teams->num_rows;
         <h2>Tournoi de <?php echo $sport ?></h2>
 
         <p class ="attendu">
-            Nombre d'équipes attendu : <?php echo $capacity ?>
+            Nombre d'équipes attendues : <?php echo $capacity ?>
         </p>
 
         <?php if( $i < (int)$capacity) { ?>

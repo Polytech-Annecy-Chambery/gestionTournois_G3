@@ -94,7 +94,7 @@ $content = ob_start();
                             <input type=\"hidden\" name=\"prenom_j\" value=\"".$row["prenom_j"]."\">
                             <input type=\"hidden\" name=\"nom_e\" value=\"".$team."\">
                         ";
-                        echo "<td> <button class='table_button' type=\"submit\" name=\"action\" value=\"deletePlayer\">Supprimer</button> </td>";
+                        echo "<td> <button class='table_button btn_suppr' type=\"submit\" name=\"action\" value=\"deletePlayer\">Supprimer</button> </td>";
                         echo "</form></tr>";
                         
                     }

@@ -26,7 +26,7 @@
 
             $match = $this->matchModel->getMatchFromID($matchID)[0];
             $tournament = $this->tournamentModel->getTournament($tournamentID)->fetch_all(MYSQLI_ASSOC)[0];
-            if($match["tour_r"] < ($tournament["capacite_t"] / 4 + 1)){
+            if($match["tour_r"] < ($tournament["capacite_t"] / 4 + ($tournament["capacite_t"] == 16 ? 0 : 1))){
 
 
                 $groupMatch = $this->matchModel->getMatchFromID($_POST["groupMatch"])[0];

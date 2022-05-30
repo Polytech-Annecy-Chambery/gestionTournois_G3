@@ -38,8 +38,8 @@
 }
 
 .menu > li:hover button {
-  color: black;
-  transition: all 1s ease;
+  color: rgb(147, 113, 113);
+  transition: all 0.3s ease;
 }
 
 .menu-button-container {

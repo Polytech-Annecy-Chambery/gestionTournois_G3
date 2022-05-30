@@ -16,6 +16,8 @@ ob_start();
 		<div <?php echo ($compteur % 2==0 ? 'class=unTournoi' : 'class=unTournoiGrey'); ?>>
 			<div class="nom"><?php echo $donnees['nom_t']?></div>
 
+			<div class="sport"><?php echo $donnees['sport_t']?></div>
+
 			<div class="form_contain">
 				<form id="form_tournament" method='POST'>
 					<input type="hidden" name="nom_t" value="<?php echo $donnees['nom_t']?>">	
