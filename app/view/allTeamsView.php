@@ -7,6 +7,14 @@ ob_start();
 <div id="list_equipes_content">
     <h1 class = "title">Équipes inscrites</h1>
 
+    <?php  
+    if(isset($erreurDelete)){
+                    if($erreurDelete == TRUE ){
+                        echo "<p class='error'>Impossible. L'équipe est déjà dans un tournoi.</p>";
+                    }
+                }
+    ?>
+
     <div class = "lesEquipes">
         <?php
             $compteur = 0;

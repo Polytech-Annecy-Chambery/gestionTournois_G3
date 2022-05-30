@@ -2,6 +2,14 @@ h1{
     padding-bottom: 6vh;
 }
 
+.error{
+    color:var(--light-red);
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 1vh;
+
+}
+
 #list_tournois_content, #list_equipes_content{
     padding: 2vh 1vw 3vh 1vw;
     display: flex;

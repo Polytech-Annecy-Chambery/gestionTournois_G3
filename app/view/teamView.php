@@ -37,7 +37,7 @@ $content = ob_start();
                             echo "<td>".$h_name."</td>";
                             echo "<td>".$row["score_e1_r"]." - ".$row["score_e2_r"]."</td>";
                             echo "<td>".$a_name."</td>";
-                            echo "<td>Nom du tournoisbbbbbbbbbbbb</td>";
+                            echo "<td>".$row["nom_t"]."</td>";
                         echo "</tr>";
                     }
                     ?>

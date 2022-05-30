@@ -59,22 +59,24 @@ class TeamController
 
     function deleteTeam(){
 
+        $id=$this->teamModel->getTeamID($_POST["nom_e"]);
+        $id_e=$id->fetch_assoc()["id_e"];
         $this->teamModel->deleteTeam();
         //$this->matchModel->deleteMatchs();
         //Supprimer les matchs quand on aura ajouté la gestion des matchs
-        $teams = $this->teamModel->getAllTeams();
-        require("view/allTeamsView.php");
 
 
-        // if($this->teamModel->existTeamInTournament()){
-        //     $erreurDelete=TRUE;
-        //     require("view/allTeamsView.php");
-        // }
-        // else{
-        //     $this->teamModel->deleteTeam();
-        //     $teams = $this->teamModel->getAllTeams();
-        //     require("view/allTeamsView.php");
-        // }
+        if($this->teamModel->existTeamInTournament($id_e)){
+            $erreurDelete=TRUE;
+            $teams = $this->teamModel->getAllTeams();
+            require("view/allTeamsView.php");
+        }
+        else{
+            $this->teamModel->deleteTeam();
+            $erreurDelete=FALSE;
+            $teams = $this->teamModel->getAllTeams();
+            require("view/allTeamsView.php");
+        }
     }
 
     function displayTeamInfos()

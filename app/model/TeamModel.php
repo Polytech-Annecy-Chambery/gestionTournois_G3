@@ -76,18 +76,18 @@ class TeamModel extends Model {
         }
     }
 
-    // function existTeamInTournament(){
-    //     $conn = $this->dbConnect();
-    //     $result = mysqli_query($conn, "SELECT * FROM equipe,rencontre WHERE equipe.id_e='".$_POST["id_e"]."' AND (rencontre.id_e1='".$_POST["id_e"]."' OR rencontre.id_e2='".$_POST["id_e"]."') ");
-    //     $donnees=$result->fetch_assoc();
+    function existTeamInTournament($id){
+        $conn = $this->dbConnect();
+        $result = mysqli_query($conn, "SELECT * FROM appartient WHERE id_e =".$id);
+        $donnees=$result->fetch_assoc();
         
-    //     if(is_null($donnees)==FALSE){
-    //         return TRUE;
-    //     }
-    //     else{
-    //         return FALSE;
-    //     }
-    // }
+        if(is_null($donnees)==FALSE){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
 
     function getAllTeamsFromTournament(){
         $conn = $this->dbConnect();
@@ -129,7 +129,7 @@ class TeamModel extends Model {
 
     function getTeamMatches(){
         $conn = $this->dbConnect();
-        $sql = "SELECT * FROM rencontre r JOIN equipe e ON r.id_e1 = e.id_e OR r.id_e2 = e.id_e WHERE e.nom_e = \"".$_POST["nom_e"]."\"";
+        $sql = "SELECT * FROM rencontre r JOIN equipe e ON r.id_e1 = e.id_e OR r.id_e2 = e.id_e JOIN tournois t ON t.id_t=r.id_t WHERE e.nom_e = \"".$_POST["nom_e"]."\"";
         $result = mysqli_query($conn, $sql) or die("Requête invalide: ". mysqli_error($conn)."\n".$sql);
         return $result;
     }
